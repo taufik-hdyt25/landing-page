@@ -3,25 +3,18 @@ import {
   Box,
   Button,
   Center,
+  Circle,
   Flex,
   Image,
-  Step,
-  StepDescription,
-  StepIcon,
-  StepIndicator,
-  StepNumber,
-  Stepper,
-  StepSeparator,
-  StepStatus,
-  StepTitle,
   Text,
-  useSteps,
+  VStack,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { CalendarHeart } from "lucide-react";
+import { CalendarHeart, Heart } from "lucide-react";
 import HeartAnimation from "./Animation/HeartAnimation";
 const MotionBox = motion(Box);
 const CenterBox = motion(Center);
+const HeartMotion = motion(Heart);
 const steps = [
   {
     title: "💼 Awal Pertemuan Sederhana",
@@ -41,10 +34,6 @@ const steps = [
 ];
 
 const Home = () => {
-  const { activeStep } = useSteps({
-    index: 1,
-    count: steps.length,
-  });
   return (
     <Box pb={20} overflowX={"hidden"}>
       <Box
@@ -323,48 +312,56 @@ const Home = () => {
               />
             </AspectRatio>
 
-            <Box mt={5}>
-              <Stepper
-                index={activeStep}
-                orientation="vertical"
-                height="400px"
-                gap="0"
-                size="xs"
+            <Box
+              mt={5}
+              overflowY={"auto"}
+              maxH="200px"
+              rounded={"md"}
+              pos={"relative"}
+              css={{
+                "&::-webkit-scrollbar": { display: "none" },
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
+              }}
+            >
+              <VStack align="stretch" spacing={10}>
+                <TimelineItem />
+              </VStack>
+              <Box
+                position="absolute"
+                inset={0}
+                backdropFilter="blur(3px)"
+                bg="rgba(255,255,255,0.02)"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
               >
-                {steps.map((step, index) => (
-                  <Step key={index}>
-                    <StepIndicator>
-                      <StepStatus
-                        complete={<StepIcon />}
-                        incomplete={<StepNumber />}
-                        active={<StepNumber />}
-                      />
-                    </StepIndicator>
-
-                    {/* Kontainer teks diatur kolom */}
-                    <Box
-                      flexShrink="0"
-                      display="flex"
-                      flexDir="column"
-                      gap={1}
-                      ml={3}
-                    >
-                      <StepTitle
-                        style={{
-                          color: "white",
-                          backgroundColor: "red",
-                          textAlign: "start",
-                        }}
-                      >
-                        {step.title}
-                      </StepTitle>
-                      <StepDescription>{step.description}</StepDescription>
-                    </Box>
-
-                    <StepSeparator />
-                  </Step>
-                ))}
-              </Stepper>
+                <Button
+                  variant={"outline"}
+                  size={"sm"}
+                  _hover={{
+                    bg: "transparent",
+                  }}
+                  cursor={"pointer"}
+                  leftIcon={
+                    <HeartMotion
+                      style={{ height: 20, width: 20 }}
+                      animate={{
+                        y: [0, -6, 0], // gerak naik, turun
+                      }}
+                      transition={{
+                        duration: 2, // durasi satu siklus
+                        repeat: Infinity, // ulang terus
+                        ease: "easeInOut", // gerak halus
+                      }}
+                    />
+                  }
+                  rounded={"full"}
+                  color={"white"}
+                >
+                  Lihat Story
+                </Button>
+              </Box>
             </Box>
           </Box>
         </MotionBox>
@@ -374,3 +371,75 @@ const Home = () => {
 };
 
 export default Home;
+
+const TimelineItem: React.FC = () => {
+  const steps = [
+    {
+      title: "💼 Awal Pertemuan Sederhana",
+      desc: "Pada Januari 2025, Wahyu, seorang desainer grafis berusia 28 tahun, bertemu Riski, copywriter yang dikenal cerdas dan pendiam, dalam proyek branding perusahaan. Interaksi mereka di ruang rapat terbatas pada urusan kerja, penuh adab dan profesional. Tanpa Wahyu ketahui, Riski sebenarnya pernah melihat karya desain Wahyu di lomba nasional dua tahun lalu dan kagum dengan bakatnya. Namun, sesuai prinsipnya, Riski menjaga jarak dan hanya fokus pada tugas, menghindari interaksi yang tidak perlu.",
+    },
+    {
+      title: "💞 Benih Cinta dalam Ujian",
+      desc: "Memasuki Februari 2025, proyek mereka menghadapi krisis: klien menolak konsep awal dan mengancam membatalkan kontrak. Di tengah tekanan, Riski tampil dengan solusi kreatif yang menyelamatkan proyek, membuat Wahyu terkesan dengan ketenangan dan kecerdasannya. Diam-diam, Wahyu mulai memperhatikan Riski lebih dalam, terutama melalui unggahan media sosialnya yang penuh dengan nilai keimanan dan kesabaran. Merasa ada kesamaan visi, Wahyu beristikharah dan memutuskan memulai taaruf. Ia menghubungi seorang ustaz terpercaya sebagai perantara. Kejutan muncul saat Riski mengaku bahwa ia juga telah lama memperhatikan Wahyu, namun menahan diri hingga ada niat yang jelas, sebuah pengakuan yang membuat hati Wahyu hangat.",
+    },
+    {
+      title: "💍 Langkah Menuju Ridha Allah",
+      desc: "Proses taaruf berjalan penuh keikhlasan, dengan pendamping yang memastikan setiap langkah sesuai syariat. Wahyu dan Riski saling terbuka tentang impian membangun keluarga yang diridhai Allah. Namun, sebuah ujian datang: keluarga Riski ragu karena latar belakang ekonomi Wahyu yang sederhana. Di sinilah plot twist terungkap—Wahyu mempresentasikan rencana usaha sosial berbasis seni yang telah ia kembangkan diam-diam, menunjukkan visinya untuk memberi manfaat bagi umat. Presentasi itu meluluhkan hati keluarga Riski. Pada Maret 2025, setelah istikharah dan mendapat restu keluarga, Wahyu melamar Riski dalam acara sederhana namun penuh makna. Dengan niat tulus, mereka melangkah menuju pernikahan, yakin bahwa Allah telah merajut kisah mereka dengan indah.",
+    },
+  ];
+  return (
+    <VStack align="stretch" spacing={0} position="relative">
+      {steps.map((step, index) => {
+        const isLast = false;
+
+        return (
+          <Flex key={index} position="relative" align="stretch">
+            <Box
+              position="relative"
+              mr={3}
+              display="flex"
+              flexDirection="column"
+              alignItems="center"
+            >
+              {!isLast && (
+                <Box
+                  position="absolute"
+                  top="30px"
+                  left="50%"
+                  transform="translateX(-50%)"
+                  w="2px"
+                  h="calc(100% - 30px)"
+                  bg="gray.400"
+                  zIndex={0}
+                />
+              )}
+
+              <Circle
+                size="30px"
+                bg="gray.800"
+                color="white"
+                border="2px solid"
+                borderColor="gray.500"
+                zIndex={1}
+                flexShrink={0}
+              >
+                <Text fontSize="sm" fontWeight="bold">
+                  {index + 1}
+                </Text>
+              </Circle>
+            </Box>
+
+            <Box flex="1" textAlign="left" pb={3}>
+              <Text fontWeight="bold" fontSize="sm">
+                {step.title}
+              </Text>
+              <Text mt={1} fontSize="xs" color="gray.200" lineHeight="1.7">
+                {step.desc}
+              </Text>
+            </Box>
+          </Flex>
+        );
+      })}
+    </VStack>
+  );
+};
