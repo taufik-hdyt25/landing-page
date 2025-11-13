@@ -11,9 +11,21 @@ const myCustomTheme = extendTheme({
     lobster: {
       fontFamily: "var(--font-Lobster)",
     },
+    caladea: {
+      fontFamily: "var(--font-Caladea)",
+    },
+    dancing: {
+      fontFamily: "var(--font-dancing)",
+    },
+    fontEsthetic: {
+      fontFamily: "var(--font-esthetic)",
+    },
+    fontArabic: {
+      fontFamily: "var(--font-arabic)",
+    },
   },
   colors: {
-    primary: "#799EFF",
+    primary: "var(--bg)",
     myColor: {
       primary: "var(--primary) ",
       secondary: "var(--secondary)",
@@ -22,13 +34,14 @@ const myCustomTheme = extendTheme({
       "bg-sidebar": "var(--bg-sidebar)",
       "bg-content": "var(--bg-content)",
       "text-inActive": "var(--text-inActive)",
+      "bg-primary": "var(--bg-primary)",
     },
   },
   components: {
     Button,
     Text: {
       baseStyle: {
-        color: "myColor.bg",
+        color: "white",
       },
     },
   },

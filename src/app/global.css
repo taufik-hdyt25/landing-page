@@ -6,10 +6,11 @@
 
 
 :root {
-  --primary: #3587FF;
+  --bg-primary: black;
+  --primary: #F5F5F5;
   --secondary: #9333ea;
   --text: #1e293b;
-  --bg: #ffffff;
+  --bg: #FEDFE3;
   --bg-sidebar: #ffffff;
   --bg-content: #F5F5F5;
   --text-inActive: #ABABAB;

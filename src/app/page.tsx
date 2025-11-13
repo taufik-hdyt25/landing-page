@@ -1,6 +1,4 @@
-// import Home from "@/containers/Home/Home";
-
-import Home from "@/containers/Home";
+import WeddingInvitation from "@/containers/WeddingInvitation";
 import { generateParams } from "@/helpers/generateParams";
 import { IParams } from "@/interfaces/IBaseParams";
 import { Metadata } from "next";
@@ -11,7 +9,7 @@ export const metadata: Metadata = {
 const HomePage = async ({ searchParams, params }: IParams) => {
   const { query } = await generateParams({ searchParams, params });
 
-  return <Home params={query} />;
+  return <WeddingInvitation />;
 };
 
 export default HomePage;

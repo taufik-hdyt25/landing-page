@@ -1,12 +1,18 @@
 import { Metadata } from "next";
-import { Lobster_Two } from "next/font/google";
+import {
+  Caladea,
+  Dancing_Script,
+  Lobster_Two,
+  Noto_Naskh_Arabic,
+  Sacramento,
+} from "next/font/google";
 import "./global.css";
 import Providers from "./providers";
 
 export const metadata: Metadata = {
   title: {
     default: "Aplikasi Saya",
-    template: "%s | Aplikasi Saya",
+    template: "%s",
   },
   description: "Aplikasi web modern dengan fitur lengkap.",
   keywords: ["aplikasi", "web", "react", "nextjs", "shadcn"],
@@ -41,6 +47,28 @@ const Lobster = Lobster_Two({
   weight: ["700"],
 });
 
+const caladea = Caladea({
+  subsets: ["latin"],
+  variable: "--font-Caladea",
+  weight: ["400", "700"],
+});
+const dancing = Dancing_Script({
+  subsets: ["latin"],
+  variable: "--font-dancing",
+  weight: ["400", "700", "500", "600"],
+});
+
+const fontEsthetic = Sacramento({
+  subsets: ["latin"],
+  variable: "--font-esthetic",
+  weight: ["400"],
+});
+const fontArabic = Noto_Naskh_Arabic({
+  subsets: ["latin"],
+  variable: "--font-arabic",
+  weight: ["400", "500", "600", "700"],
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -50,7 +78,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         cz-shortcut-listen="true"
-        className={`${Lobster.variable} chakra-ui-light`}
+        className={`${Lobster.variable} chakra-ui-light ${caladea.variable} ${dancing.variable} ${fontEsthetic.variable} ${fontArabic.variable}`}
+        style={{ backgroundColor: "var(--bg-primary)" }}
       >
         <Providers>{children}</Providers>
       </body>
