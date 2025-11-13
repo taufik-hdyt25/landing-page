@@ -1,12 +1,52 @@
-import { Box, Button, Center, Text } from "@chakra-ui/react";
+import {
+  AspectRatio,
+  Box,
+  Button,
+  Center,
+  Flex,
+  Image,
+  Step,
+  StepDescription,
+  StepIcon,
+  StepIndicator,
+  StepNumber,
+  Stepper,
+  StepSeparator,
+  StepStatus,
+  StepTitle,
+  Text,
+  useSteps,
+} from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { CalendarHeart, Heart } from "lucide-react";
+import { CalendarHeart } from "lucide-react";
+import HeartAnimation from "./Animation/HeartAnimation";
 const MotionBox = motion(Box);
-const MotionHeart = motion(Heart);
+const CenterBox = motion(Center);
+const steps = [
+  {
+    title: "💼 Awal Pertemuan Sederhana",
+    description:
+      "Pada Januari 2025, Wahyu, seorang desainer grafis berusia 28 tahun, bertemu Riski, copywriter yang dikenal cerdas dan pendiam, dalam proyek branding perusahaan. Interaksi mereka di ruang rapat terbatas pada urusan kerja, penuh adab dan profesional. Tanpa Wahyu ketahui, Riski sebenarnya pernah melihat karya desain Wahyu di lomba nasional dua tahun lalu dan kagum dengan bakatnya. Namun, sesuai prinsipnya, Riski menjaga jarak dan hanya fokus pada tugas, menghindari interaksi yang tidak perlu.",
+  },
+  {
+    title: "💞 Benih Cinta dalam Ujian",
+    description:
+      "Memasuki Februari 2025, proyek mereka menghadapi krisis: klien menolak konsep awal dan mengancam membatalkan kontrak. Di tengah tekanan, Riski tampil dengan solusi kreatif yang menyelamatkan proyek, membuat Wahyu terkesan dengan ketenangan dan kecerdasannya. Diam-diam, Wahyu mulai memperhatikan Riski lebih dalam, terutama melalui unggahan media sosialnya yang penuh dengan nilai keimanan dan kesabaran. Merasa ada kesamaan visi, Wahyu beristikharah dan memutuskan memulai taaruf. Ia menghubungi seorang ustaz terpercaya sebagai perantara. Kejutan muncul saat Riski mengaku bahwa ia juga telah lama memperhatikan Wahyu, namun menahan diri hingga ada niat yang jelas, sebuah pengakuan yang membuat hati Wahyu hangat.",
+  },
+  {
+    title: "💍 Langkah Menuju Ridha Allah",
+    description:
+      "Proses taaruf berjalan penuh keikhlasan, dengan pendamping yang memastikan setiap langkah sesuai syariat. Wahyu dan Riski saling terbuka tentang impian membangun keluarga yang diridhai Allah. Namun, sebuah ujian datang: keluarga Riski ragu karena latar belakang ekonomi Wahyu yang sederhana. Di sinilah plot twist terungkap—Wahyu mempresentasikan rencana usaha sosial berbasis seni yang telah ia kembangkan diam-diam, menunjukkan visinya untuk memberi manfaat bagi umat. Presentasi itu meluluhkan hati keluarga Riski. Pada Maret 2025, setelah istikharah dan mendapat restu keluarga, Wahyu melamar Riski dalam acara sederhana namun penuh makna. Dengan niat tulus, mereka melangkah menuju pernikahan, yakin bahwa Allah telah merajut kisah mereka dengan indah.",
+  },
+];
 
 const Home = () => {
+  const { activeStep } = useSteps({
+    index: 1,
+    count: steps.length,
+  });
   return (
-    <Box>
+    <Box pb={20} overflowX={"hidden"}>
       <Box
         position="relative"
         bg="blue.400"
@@ -29,8 +69,9 @@ const Home = () => {
 
         <MotionBox
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
+          viewport={{ once: false, amount: 0.2 }}
           pos={"relative"}
           zIndex={2}
         >
@@ -104,23 +145,229 @@ const Home = () => {
           </Text>
         </Center>
 
-        <MotionHeart
-          size={34}
-          style={{
-            color: "white",
-            opacity: 0.5,
-            marginTop: 20,
-            marginLeft: 10,
-          }}
-          animate={{
-            y: [0, -6, 0], // gerak naik, turun
-          }}
-          transition={{
-            duration: 2, // durasi satu siklus
-            repeat: Infinity, // ulang terus
-            ease: "easeInOut", // gerak halus
-          }}
-        />
+        <Flex justify={"start"} ml={3}>
+          <HeartAnimation />
+        </Flex>
+
+        <CenterBox flexDirection={"column"} pos={"relative"}>
+          <Box p={0.5} bg={"white"} rounded={"full"} mt={3}>
+            <Image h={44} w={44} rounded={"full"} src="/images/cowo.webp" />
+          </Box>
+
+          <Text
+            textAlign={"center"}
+            fontSize={34}
+            mt={10}
+            textStyle={"fontEsthetic"}
+            color={"white"}
+          >
+            Taufik
+          </Text>
+          <Text fontWeight={"600"} textAlign={"center"} color={"white"} mt={3}>
+            Putra ke-1
+          </Text>
+          <Box fontSize={12}>
+            <Text textAlign={"center"} color={"white"}>
+              Bapak ...
+            </Text>
+            <Text textAlign={"center"} color={"white"}>
+              dan
+            </Text>
+            <Text textAlign={"center"} color={"white"}>
+              Ibu ...
+            </Text>
+          </Box>
+        </CenterBox>
+        <Text
+          textAlign={"center"}
+          fontSize={"5rem"}
+          mt={5}
+          textStyle={"fontEsthetic"}
+          color={"white"}
+        >
+          &
+        </Text>
+
+        <Flex justify={"end"} mr={3}>
+          <HeartAnimation />
+        </Flex>
+
+        <CenterBox
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          viewport={{ once: false, amount: 0.2 }}
+          flexDirection={"column"}
+          pos={"relative"}
+        >
+          <Box p={0.5} bg={"white"} rounded={"full"} mt={3}>
+            <Image h={44} w={44} rounded={"full"} src="/images/cewe.webp" />
+          </Box>
+
+          <Text
+            textAlign={"center"}
+            fontSize={34}
+            mt={10}
+            textStyle={"fontEsthetic"}
+            color={"white"}
+          >
+            Hidayat
+          </Text>
+          <Text fontWeight={"600"} textAlign={"center"} color={"white"} mt={3}>
+            Putri ke-1
+          </Text>
+          <Box fontSize={12}>
+            <Text textAlign={"center"} color={"white"}>
+              Bapak ...
+            </Text>
+            <Text textAlign={"center"} color={"white"}>
+              dan
+            </Text>
+            <Text textAlign={"center"} color={"white"}>
+              Ibu ...
+            </Text>
+          </Box>
+        </CenterBox>
+
+        <Flex justify={"start"} ml={3}>
+          <HeartAnimation />
+        </Flex>
+
+        <Box
+          as="svg"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          transform="rotate(180deg)"
+          width="100%"
+          height="auto"
+          display="block"
+          overflow="hidden"
+        >
+          <path
+            fill="#212529"
+            fillOpacity="1"
+            d="M0,192L40,181.3C80,171,160,149,240,149.3C320,149,400,171,480,165.3C560,160,640,128,720,128C800,128,880,160,960,186.7C1040,213,1120,235,1200,218.7C1280,203,1360,149,1400,122.7L1440,96L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"
+          />
+        </Box>
+
+        <MotionBox pos={"relative"} zIndex={2} bg={"#212529"} px={3} py={5}>
+          <Box color="white" textAlign="center" fontSize="2xl" zIndex={3}>
+            <Text
+              fontSize={"2rem"}
+              textStyle={"fontEsthetic"}
+              color={"white"}
+              textAlign={"center"}
+            >
+              Allah Subhanahu Wa <br /> Ta'ala berfirman
+            </Text>
+
+            <MotionBox
+              initial={{ opacity: 0, y: -100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              viewport={{ once: false, amount: 0.2 }}
+              p={5}
+              fontSize={"sm"}
+              bg={"#343A40"}
+              textAlign={"center"}
+              shadow={"md"}
+              rounded={"md"}
+              mt={5}
+            >
+              <Text>
+                Dan segala sesuatu Kami ciptakan <br /> berpasang-pasangan agar
+                kamu <br />
+                mengingat (kebesaran Allah).
+              </Text>
+              <Text mt={3}>QS. Adh-Dhariyat: 49</Text>
+            </MotionBox>
+            <MotionBox
+              initial={{ opacity: 0, y: -100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              viewport={{ once: false, amount: 0.4 }}
+              p={5}
+              fontSize={"sm"}
+              bg={"#343A40"}
+              textAlign={"center"}
+              shadow={"md"}
+              rounded={"md"}
+              mt={5}
+            >
+              <Text>
+                dan sesungguhnya Dialah yang <br /> menciptakan pasangan
+                laki-laki dan <br />
+                perempuan.
+              </Text>
+              <Text mt={3}>QS. An-Najm: 45</Text>
+            </MotionBox>
+          </Box>
+          <Box
+            p={5}
+            fontSize={"sm"}
+            bg={"#343A40"}
+            textAlign={"center"}
+            shadow={"md"}
+            rounded={"3xl"}
+            mt={5}
+          >
+            <Text fontSize={"2rem"} textStyle={"fontEsthetic"}>
+              Love Story
+            </Text>
+            <AspectRatio mt={5} ratio={16 / 9} w="full">
+              <Image
+                src="/images/bg.webp"
+                alt="love-story"
+                objectFit="cover"
+                rounded="3xl"
+              />
+            </AspectRatio>
+
+            <Box mt={5}>
+              <Stepper
+                index={activeStep}
+                orientation="vertical"
+                height="400px"
+                gap="0"
+                size="xs"
+              >
+                {steps.map((step, index) => (
+                  <Step key={index}>
+                    <StepIndicator>
+                      <StepStatus
+                        complete={<StepIcon />}
+                        incomplete={<StepNumber />}
+                        active={<StepNumber />}
+                      />
+                    </StepIndicator>
+
+                    {/* Kontainer teks diatur kolom */}
+                    <Box
+                      flexShrink="0"
+                      display="flex"
+                      flexDir="column"
+                      gap={1}
+                      ml={3}
+                    >
+                      <StepTitle
+                        style={{
+                          color: "white",
+                          backgroundColor: "red",
+                          textAlign: "start",
+                        }}
+                      >
+                        {step.title}
+                      </StepTitle>
+                      <StepDescription>{step.description}</StepDescription>
+                    </Box>
+
+                    <StepSeparator />
+                  </Step>
+                ))}
+              </Stepper>
+            </Box>
+          </Box>
+        </MotionBox>
       </Box>
     </Box>
   );
