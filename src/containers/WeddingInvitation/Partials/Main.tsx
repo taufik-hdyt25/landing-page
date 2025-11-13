@@ -4,7 +4,7 @@ import Home from "./Main/Home";
 const MainPage = () => {
   return (
     <Box>
-      <Grid templateColumns={"1fr 378px"} h={"100vh"}>
+      <Grid templateColumns={{ base: "1fr", md: "1fr 378px" }} h={"100vh"}>
         <GridItem
           bgImage="url('/images/bg.webp')"
           bgSize="cover"
@@ -12,6 +12,7 @@ const MainPage = () => {
           bgRepeat="no-repeat"
           overflow="hidden"
           position={"relative"}
+          display={{ base: "none", md: "grid" }}
         >
           <Box
             position="absolute"

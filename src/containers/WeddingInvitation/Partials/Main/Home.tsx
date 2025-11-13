@@ -92,22 +92,28 @@ const Home = () => {
 
         <Box
           as="svg"
-          viewBox="0 0 1200 120"
+          viewBox="0 0 1440 320"
           preserveAspectRatio="none"
           position="absolute"
           bottom="0"
           left="0"
-          width="100vw"
-          height="120px"
+          width="100%"
+          height="80px"
           display="block"
           zIndex={1}
         >
+          {/* Definisi gradasi */}
+          <defs>
+            <linearGradient id="waveGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#000" stopOpacity="1" />
+              <stop offset="100%" stopColor="#000" stopOpacity="1" />
+            </linearGradient>
+          </defs>
+
+          {/* Gelombang dengan kiri tinggi */}
           <path
-            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86
-          C626.18,1.9,684.52-2.49,741.3,3.69c61,6.56,119.85,24.33,
-          179.11,39.15,66.86,16.72,136.45,28.83,205.59,19.72V120H0
-          V16.48A600.21,600.21,0,0,0,321.39,56.44Z"
-            fill="black"
+            fill="url(#waveGradient)"
+            d="M0,160L60,150C120,140,240,120,360,130C480,140,600,180,720,200C840,220,960,220,1080,190C1200,160,1320,100,1380,70L1440,40V320H0Z"
           />
         </Box>
       </Box>
@@ -330,7 +336,7 @@ const Home = () => {
               <Box
                 position="absolute"
                 inset={0}
-                backdropFilter="blur(3px)"
+                backdropFilter="blur(2px)"
                 bg="rgba(255,255,255,0.02)"
                 display="flex"
                 alignItems="center"
