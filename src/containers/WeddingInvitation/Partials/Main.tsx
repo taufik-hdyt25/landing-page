@@ -20,7 +20,7 @@ const MainPage = () => {
             left={0}
             w="full"
             h="full"
-            bg="blackAlpha.600"
+            bg="blackAlpha.800"
             zIndex={1}
           />
 

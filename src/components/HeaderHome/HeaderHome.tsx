@@ -1,6 +1,6 @@
 "use client";
 
-import { categories } from "@/containers/Home/dummy";
+import { categories } from "@/containers/WeddingInvitation/dummy";
 import { Button, Flex, HStack, Image, Text } from "@chakra-ui/react";
 import React, { JSX, ReactNode } from "react";
 
