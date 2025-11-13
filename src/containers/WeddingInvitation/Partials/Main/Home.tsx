@@ -12,17 +12,19 @@ import {
 import { motion } from "framer-motion";
 import { CalendarHeart, Heart } from "lucide-react";
 import HeartAnimation from "./Animation/HeartAnimation";
+import { useState } from "react";
 const MotionBox = motion(Box);
 const CenterBox = motion(Center);
 const HeartMotion = motion(Heart);
 
 const Home = () => {
+  const [isOpenStory, setIsOpenStory] = useState(false);
   return (
     <Box pb={20} overflowX={"hidden"}>
       <Box
         position="relative"
         bg="blue.400"
-        h="350px"
+        h="100vh"
         overflow="hidden"
         bgImage="url('/images/bg.webp')"
         bgSize="cover"
@@ -36,6 +38,7 @@ const Home = () => {
           w="full"
           h="full"
           bg="blackAlpha.700"
+          backdropFilter="blur(8px)"
           zIndex={1}
         />
 
@@ -47,16 +50,37 @@ const Home = () => {
           pos={"relative"}
           zIndex={2}
         >
+          <Text
+            fontSize={"2rem"}
+            textStyle={"fontEsthetic"}
+            color={"white"}
+            textAlign={"center"}
+            mt={10}
+            fontWeight={"500"}
+          >
+            Wedding Invitation
+          </Text>
+          <Center>
+            <Box
+              p={0.5}
+              mt={24}
+              bg={"white"}
+              rounded={"full"}
+              w={"fit-content"}
+            >
+              <Image h={52} w={52} rounded={"full"} src="/images/bg.webp" />
+            </Box>
+          </Center>
           <Box color="white" textAlign="center" pt="100px" fontSize="2xl">
             <Text
-              fontSize={24}
+              fontSize={"2.3rem"}
               textStyle={"fontEsthetic"}
               color={"white"}
-              fontWeight={"bold"}
+              fontWeight={"500"}
             >
               Taufik & Hidayat
             </Text>
-            <Text fontSize={14} mt={3} color={"white"}>
+            <Text fontSize={"1rem"} mt={3} color={"white"}>
               Rabu, 15 Maret 2023
             </Text>
             <Button
@@ -303,7 +327,7 @@ const Home = () => {
 
             <Box
               mt={5}
-              overflowY={"auto"}
+              overflowY={isOpenStory ? "auto" : "hidden"}
               maxH="200px"
               rounded={"md"}
               pos={"relative"}
@@ -316,44 +340,77 @@ const Home = () => {
               <VStack align="stretch" spacing={10}>
                 <TimelineItem />
               </VStack>
-              <Box
-                position="absolute"
-                inset={0}
-                backdropFilter="blur(2px)"
-                bg="rgba(255,255,255,0.02)"
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-              >
-                <Button
-                  variant={"outline"}
-                  size={"sm"}
-                  _hover={{
-                    bg: "transparent",
-                  }}
-                  cursor={"pointer"}
-                  leftIcon={
-                    <HeartMotion
-                      style={{ height: 20, width: 20 }}
-                      animate={{
-                        y: [0, -6, 0], // gerak naik, turun
-                      }}
-                      transition={{
-                        duration: 2, // durasi satu siklus
-                        repeat: Infinity, // ulang terus
-                        ease: "easeInOut", // gerak halus
-                      }}
-                    />
-                  }
-                  rounded={"full"}
-                  color={"white"}
+
+              {!isOpenStory && (
+                <Box
+                  position="absolute"
+                  inset={0}
+                  backdropFilter="blur(2px)"
+                  bg="rgba(255,255,255,0.02)"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
                 >
-                  Lihat Story
-                </Button>
-              </Box>
+                  <Button
+                    onClick={() => setIsOpenStory(true)}
+                    variant={"outline"}
+                    size={"sm"}
+                    _hover={{
+                      bg: "transparent",
+                    }}
+                    cursor={"pointer"}
+                    leftIcon={
+                      <HeartMotion
+                        style={{ height: 20, width: 20 }}
+                        animate={{
+                          y: [0, -6, 0],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                        }}
+                      />
+                    }
+                    rounded={"full"}
+                    color={"white"}
+                  >
+                    Lihat Story
+                  </Button>
+                </Box>
+              )}
             </Box>
           </Box>
         </MotionBox>
+
+        <Box
+          as="svg"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          transform="rotate(360deg)"
+          width="100%"
+          height="auto"
+          display="block"
+          overflow="hidden"
+        >
+          <path
+            fill="#212529"
+            fillOpacity="1"
+            d="M0,192L40,181.3C80,171,160,149,240,149.3C320,149,400,171,480,165.3C560,160,640,128,720,128C800,128,880,160,960,186.7C1040,213,1120,235,1200,218.7C1280,203,1360,149,1400,122.7L1440,96L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"
+          />
+        </Box>
+
+        <Box>
+          <Text
+            fontSize={"2rem"}
+            textStyle={"fontEsthetic"}
+            color={"white"}
+            fontWeight={"bold"}
+            textAlign={"center"}
+          >
+            Moment Bahagia
+          </Text>
+        </Box>
       </Box>
     </Box>
   );

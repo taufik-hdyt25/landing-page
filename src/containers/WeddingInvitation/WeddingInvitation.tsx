@@ -10,7 +10,7 @@ const WeddingInvitation: React.FC<IPagesParams> = ({ params }) => {
 
   return (
     <Box w="100%" h="100vh">
-      {!isOpen ? <OpenFirst onOpenInviataion={onOpen} /> : <MainPage />}
+      {isOpen ? <OpenFirst onOpenInviataion={onOpen} /> : <MainPage />}
     </Box>
   );
 };
