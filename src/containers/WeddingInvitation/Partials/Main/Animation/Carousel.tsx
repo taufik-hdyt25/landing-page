@@ -5,22 +5,10 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 const responsive = {
-  superLargeDesktop: {
-    breakpoint: { max: 4000, min: 1536 },
-    items: 1,
-  },
-  desktop: {
-    breakpoint: { max: 1536, min: 1024 },
-    items: 1,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 640 },
-    items: 1,
-  },
-  mobile: {
-    breakpoint: { max: 640, min: 0 },
-    items: 1,
-  },
+  superLargeDesktop: { breakpoint: { max: 4000, min: 1536 }, items: 1 },
+  desktop: { breakpoint: { max: 1536, min: 1024 }, items: 1 },
+  tablet: { breakpoint: { max: 1024, min: 640 }, items: 1 },
+  mobile: { breakpoint: { max: 640, min: 300 }, items: 1 },
 };
 
 const images = [
@@ -29,9 +17,9 @@ const images = [
   "https://shorthand.com/the-craft/raster-images/assets/5kVrMqC0wp/sh-unsplash_5qt09yibrok-4096x2731.jpeg",
 ];
 
-const GeleryCarousel = () => {
+export default function GaleryCaoursel() {
   return (
-    <div className="w-full">
+    <div style={{ width: "100%", minWidth: "100%" }}>
       <Carousel
         responsive={responsive}
         infinite
@@ -41,19 +29,18 @@ const GeleryCarousel = () => {
         containerClass="carousel-container"
       >
         {images.map((src, index) => (
-          <Box key={index} className="carousel-inner-box">
+          <Box key={index}>
             <Image
               src={src}
               alt={`Slide ${index + 1}`}
               width="100%"
-              height={{ base: "fit-content", md: 178 }}
+              height={{ base: "200px", md: "178px" }}
               objectFit="cover"
+              rounded="xl"
             />
           </Box>
         ))}
       </Carousel>
     </div>
   );
-};
-
-export default GeleryCarousel;
+}

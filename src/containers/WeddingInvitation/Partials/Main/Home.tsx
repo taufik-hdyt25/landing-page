@@ -30,8 +30,8 @@ const Home = () => {
     "galery-section",
     "ucapan-section",
   ];
-  const active = useActiveSection(ids);
-  console.log(active);
+  // const active = useActiveSection(ids);
+  // console.log(active);
 
   return (
     <Box pb={20} overflowX={"hidden"} id="home-section">

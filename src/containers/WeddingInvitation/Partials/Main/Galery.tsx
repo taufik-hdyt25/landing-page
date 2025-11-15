@@ -1,6 +1,7 @@
+"use client";
 import { Box, Stack, Text } from "@chakra-ui/react";
-import GeleryCarousel from "./Animation/Carousel";
 import { motion } from "framer-motion";
+import GaleryCaoursel from "./Animation/Carousel";
 const MotionStack = motion(Stack);
 
 const GalerySection = () => {
@@ -28,8 +29,8 @@ const GalerySection = () => {
         transition={{ duration: 1.2, ease: "easeOut" }}
         viewport={{ once: false, amount: 0.2 }}
       >
-        <GeleryCarousel />
-        <GeleryCarousel />
+        {/* <GaleryCaoursel />
+        <GaleryCaoursel /> */}
       </MotionStack>
     </Box>
   );
