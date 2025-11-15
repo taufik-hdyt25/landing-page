@@ -16,22 +16,12 @@ import HeartAnimation from "./Animation/HeartAnimation";
 import GalerySection from "./Galery";
 import TanggalSection from "./Tanggal";
 import UcapanSection from "./Ucapan";
-import { useActiveSection } from "@/hooks/useActiveSection";
 const MotionBox = motion(Box);
 const CenterBox = motion(Center);
 const HeartMotion = motion(Heart);
 
 const Home = () => {
   const [isOpenStory, setIsOpenStory] = useState(false);
-  const ids = [
-    "home-section",
-    "mempelai-section",
-    "tanggal-section",
-    "galery-section",
-    "ucapan-section",
-  ];
-  const active = useActiveSection(ids);
-  console.log(active);
 
   return (
     <Box pb={20} overflowX={"hidden"} id="home-section">

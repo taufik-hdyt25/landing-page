@@ -30,6 +30,7 @@ const GalerySection = () => {
         viewport={{ once: false, amount: 0.2 }}
       >
         <GaleryCarousel />
+        <GaleryCarousel />
       </MotionStack>
     </Box>
   );

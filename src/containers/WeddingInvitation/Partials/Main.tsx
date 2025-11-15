@@ -1,8 +1,18 @@
 import { Box, Center, Grid, GridItem, Text } from "@chakra-ui/react";
 import Home from "./Main/Home";
 import NavigationBottom from "@/components/NavigationBottom/NavigationBottom";
+import { useActiveSection } from "@/hooks/useActiveSection";
 
 const MainPage = () => {
+  const ids = [
+    "home-section",
+    "mempelai-section",
+    "tanggal-section",
+    "galery-section",
+    "ucapan-section",
+  ];
+  const active = useActiveSection(ids);
+  console.log(active);
   return (
     <Box>
       <Grid templateColumns={{ base: "1fr", md: "1fr 378px" }} h={"100vh"}>
@@ -41,10 +51,8 @@ const MainPage = () => {
             </Box>
           </Center>
         </GridItem>
-        <GridItem pos={"relative"}>
-          <Box overflowY={"auto"}>
-            <Home />
-          </Box>
+        <GridItem pos={"relative"} overflowY={"auto"}>
+          <Home />
           <NavigationBottom />
         </GridItem>
       </Grid>
