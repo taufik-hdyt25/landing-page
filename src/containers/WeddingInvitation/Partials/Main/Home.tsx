@@ -11,10 +11,10 @@ import {
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { CalendarHeart, Heart } from "lucide-react";
-import HeartAnimation from "./Animation/HeartAnimation";
 import { useState } from "react";
-import TanggalSection from "./Tanggal";
+import HeartAnimation from "./Animation/HeartAnimation";
 import GalerySection from "./Galery";
+import TanggalSection from "./Tanggal";
 import UcapanSection from "./Ucapan";
 import { useActiveSection } from "@/hooks/useActiveSection";
 const MotionBox = motion(Box);
@@ -30,8 +30,8 @@ const Home = () => {
     "galery-section",
     "ucapan-section",
   ];
-  // const active = useActiveSection(ids);
-  // console.log(active);
+  const active = useActiveSection(ids);
+  console.log(active);
 
   return (
     <Box pb={20} overflowX={"hidden"} id="home-section">

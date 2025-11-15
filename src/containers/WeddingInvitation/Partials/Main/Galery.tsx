@@ -1,7 +1,6 @@
 "use client";
 import { Box, Stack, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import GaleryCaoursel from "./Animation/Carousel";
 import GaleryCarousel from "./Animation/Carousel";
 const MotionStack = motion(Stack);
 
