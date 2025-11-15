@@ -1,10 +1,7 @@
-import { Box, Center, Grid, GridItem } from "@chakra-ui/react";
+import { Center, Grid, GridItem } from "@chakra-ui/react";
 import { CircleChevronLeft, CircleChevronRight } from "lucide-react";
-import { useState } from "react";
 
 const Pagination = () => {
-  const [isReply, setIsReply] = useState(false);
-
   return (
     <Center>
       <Grid
