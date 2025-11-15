@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import {
   Caladea,
   Dancing_Script,
+  Josefin_Sans,
   Lobster_Two,
   Noto_Naskh_Arabic,
   Sacramento,
@@ -68,6 +69,11 @@ const fontArabic = Noto_Naskh_Arabic({
   variable: "--font-arabic",
   weight: ["400", "500", "600", "700"],
 });
+const fontText = Josefin_Sans({
+  subsets: ["latin"],
+  variable: "--font-fontText",
+  weight: ["400", "500", "600", "700"],
+});
 
 export default function RootLayout({
   children,
@@ -78,7 +84,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         cz-shortcut-listen="true"
-        className={`${Lobster.variable} chakra-ui-light ${caladea.variable} ${dancing.variable} ${fontEsthetic.variable} ${fontArabic.variable}`}
+        className={`${Lobster.variable} chakra-ui-light ${caladea.variable} ${dancing.variable} ${fontEsthetic.variable} ${fontArabic.variable} ${fontText.variable}`}
         style={{ backgroundColor: "var(--bg-primary)" }}
       >
         <Providers>{children}</Providers>

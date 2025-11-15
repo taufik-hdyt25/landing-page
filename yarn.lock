@@ -1088,6 +1088,11 @@
     "@eslint/core" "^0.15.1"
     levn "^0.4.1"
 
+"@fontsource/josefin-sans@^5.2.8":
+  version "5.2.8"
+  resolved "https://registry.yarnpkg.com/@fontsource/josefin-sans/-/josefin-sans-5.2.8.tgz#167448041614ce7b8bacc1aefa06151575977ed8"
+  integrity sha512-bGY9VWF01JQc5pAOF3+tLlm75dpwJrRhd5CzY3/oyksvdZQbtwOHSDuu20VGxbBDx2/JQdllNvSJFgqI4QGGqg==
+
 "@fontsource/poppins@^5.2.6":
   version "5.2.6"
   resolved "https://registry.yarnpkg.com/@fontsource/poppins/-/poppins-5.2.6.tgz#49a297bbec25419469dbb75f61788feac97cea63"

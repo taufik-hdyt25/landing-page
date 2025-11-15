@@ -9,136 +9,45 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { motion } from "framer-motion";
-import { CalendarHeart, Heart } from "lucide-react";
 import HeartAnimation from "./Animation/HeartAnimation";
+import { motion } from "framer-motion";
+import { Heart } from "lucide-react";
 import { useState } from "react";
-import TanggalSection from "./Tanggal";
-import GalerySection from "./Galery";
-import UcapanSection from "./Ucapan";
-import { useActiveSection } from "@/hooks/useActiveSection";
 const MotionBox = motion(Box);
 const CenterBox = motion(Center);
 const HeartMotion = motion(Heart);
-
-const Home = () => {
+const MempelaiSection = () => {
   const [isOpenStory, setIsOpenStory] = useState(false);
-  const ids = [
-    "home-section",
-    "mempelai-section",
-    "tanggal-section",
-    "galery-section",
-    "ucapan-section",
-  ];
-  const active = useActiveSection(ids);
-  console.log(active);
-
   return (
-    <Box pb={20} overflowX={"hidden"} id="home-section">
+    <Box>
       <Box
-        position="relative"
-        bg="blue.400"
-        h="100vh"
-        overflow="hidden"
-        bgImage="url('/images/bg.webp')"
-        bgSize="cover"
-        bgPosition="center"
-        bgRepeat="no-repeat"
+        as="svg"
+        viewBox="0 0 1440 320"
+        preserveAspectRatio="none"
+        position="absolute"
+        bottom="0"
+        left="0"
+        width="100%"
+        height="80px"
+        display="block"
+        zIndex={1}
       >
-        <Box
-          position="absolute"
-          top={0}
-          left={0}
-          w="full"
-          h="full"
-          bg="blackAlpha.700"
-          backdropFilter="blur(8px)"
-          zIndex={1}
+        {/* Definisi gradasi */}
+        <defs>
+          <linearGradient id="waveGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#000" stopOpacity="1" />
+            <stop offset="100%" stopColor="#000" stopOpacity="1" />
+          </linearGradient>
+        </defs>
+
+        {/* Gelombang dengan kiri tinggi */}
+        <path
+          fill="url(#waveGradient)"
+          d="M0,160L60,150C120,140,240,120,360,130C480,140,600,180,720,200C840,220,960,220,1080,190C1200,160,1320,100,1380,70L1440,40V320H0Z"
         />
-
-        <MotionBox
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          viewport={{ once: false, amount: 0.2 }}
-          pos={"relative"}
-          zIndex={2}
-        >
-          <Text
-            fontSize={"2rem"}
-            textStyle={"fontEsthetic"}
-            color={"white"}
-            textAlign={"center"}
-            mt={10}
-            fontWeight={"500"}
-          >
-            Wedding Invitation
-          </Text>
-          <Center>
-            <Box
-              p={0.5}
-              mt={24}
-              bg={"white"}
-              rounded={"full"}
-              w={"fit-content"}
-            >
-              <Image h={52} w={52} rounded={"full"} src="/images/bg.webp" />
-            </Box>
-          </Center>
-          <Box color="white" textAlign="center" pt="100px" fontSize="2xl">
-            <Text
-              fontSize={"2.3rem"}
-              textStyle={"fontEsthetic"}
-              color={"white"}
-              fontWeight={"500"}
-            >
-              Taufik & Hidayat
-            </Text>
-            <Text fontSize={"1rem"} mt={3} color={"white"}>
-              Rabu, 15 Maret 2023
-            </Text>
-            <Button
-              size={"sm"}
-              leftIcon={<CalendarHeart style={{ width: 14 }} />}
-              variant={"outline"}
-              fontSize={"xs"}
-              mt={4}
-              rounded={"full"}
-              px={5}
-            >
-              Save Google Calender
-            </Button>
-          </Box>
-        </MotionBox>
-        <Box
-          as="svg"
-          viewBox="0 0 1440 320"
-          preserveAspectRatio="none"
-          position="absolute"
-          bottom="0"
-          left="0"
-          width="100%"
-          height="80px"
-          display="block"
-          zIndex={1}
-        >
-          {/* Definisi gradasi */}
-          <defs>
-            <linearGradient id="waveGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#000" stopOpacity="1" />
-              <stop offset="100%" stopColor="#000" stopOpacity="1" />
-            </linearGradient>
-          </defs>
-
-          {/* Gelombang dengan kiri tinggi */}
-          <path
-            fill="url(#waveGradient)"
-            d="M0,160L60,150C120,140,240,120,360,130C480,140,600,180,720,200C840,220,960,220,1080,190C1200,160,1320,100,1380,70L1440,40V320H0Z"
-          />
-        </Box>
       </Box>
 
-      <Box id="mempelai-section" scrollMarginTop={5}>
+      <Box>
         <Center flexDirection={"column"}>
           <Text
             fontWeight={"600"}
@@ -395,40 +304,12 @@ const Home = () => {
             </Box>
           </Box>
         </MotionBox>
-
-        <Box
-          as="svg"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1440 320"
-          transform="rotate(360deg)"
-          width="100%"
-          height="auto"
-          display="block"
-          overflow="hidden"
-        >
-          <path
-            fill="#212529"
-            fillOpacity="1"
-            d="M0,192L40,181.3C80,171,160,149,240,149.3C320,149,400,171,480,165.3C560,160,640,128,720,128C800,128,880,160,960,186.7C1040,213,1120,235,1200,218.7C1280,203,1360,149,1400,122.7L1440,96L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"
-          />
-        </Box>
-
-        <section id="tanggal-section" style={{ scrollMarginTop: 10 }}>
-          <TanggalSection />
-        </section>
-        <section id="galery-section" style={{ scrollMarginTop: 10 }}>
-          <GalerySection />
-        </section>
-
-        <section id="ucapan-section">
-          <UcapanSection />
-        </section>
       </Box>
     </Box>
   );
 };
 
-export default Home;
+export default MempelaiSection;
 
 const TimelineItem: React.FC = () => {
   const steps = [

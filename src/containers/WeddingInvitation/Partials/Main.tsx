@@ -1,5 +1,6 @@
 import { Box, Center, Grid, GridItem, Text } from "@chakra-ui/react";
 import Home from "./Main/Home";
+import NavigationBottom from "@/components/NavigationBottom/NavigationBottom";
 
 const MainPage = () => {
   return (
@@ -40,8 +41,9 @@ const MainPage = () => {
             </Box>
           </Center>
         </GridItem>
-        <GridItem overflowY={"auto"}>
+        <GridItem overflowY={"auto"} pos={"relative"}>
           <Home />
+          <NavigationBottom />
         </GridItem>
       </Grid>
     </Box>

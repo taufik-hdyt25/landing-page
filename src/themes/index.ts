@@ -1,11 +1,12 @@
 import { extendTheme } from "@chakra-ui/react";
 import { Button } from "./components/button";
 import "@fontsource/poppins";
+import "@fontsource/josefin-sans";
 
 const myCustomTheme = extendTheme({
   fonts: {
     heading: `'Poppins', sans-serif`,
-    body: `'Poppins', sans-serif`,
+    body: `'Josefin Sans', sans-serif`,
   },
   textStyles: {
     lobster: {

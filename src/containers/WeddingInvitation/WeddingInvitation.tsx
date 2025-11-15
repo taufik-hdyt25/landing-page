@@ -10,7 +10,7 @@ const WeddingInvitation: React.FC<IPagesParams> = ({ params }) => {
   const { isOpen, onOpen } = useDisclosure();
   const isProd = configEnv.isProd || false;
 
-  if (isProd) {
+  if (false) {
     return (
       <Box w="100%" h="100vh">
         {!isOpen ? <OpenFirst onOpenInviataion={onOpen} /> : <MainPage />}

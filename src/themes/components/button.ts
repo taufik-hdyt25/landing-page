@@ -35,7 +35,8 @@ export const Button: ComponentStyleConfig = {
       color: "white",
       fontWeight: "600",
       _hover: {
-        bg: "primary",
+        bg: "white",
+        color: "black",
       },
     },
     ghost: {},
@@ -46,7 +47,8 @@ export const Button: ComponentStyleConfig = {
       color: "white",
       fontWeight: "600",
       _hover: {
-        bg: "primary",
+        bg: "white",
+        color: "black",
       },
     },
   },

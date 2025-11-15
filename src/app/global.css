@@ -39,3 +39,17 @@
   font-style: normal;
 }
 
+
+.carousel-item {
+  padding: 0 8px;
+}
+
+.carousel-inner-box {
+  border-radius: 12px;   
+  overflow: hidden;      
+}
+
+.react-multi-carousel-item {
+  overflow: hidden;      
+  border-radius: 12px;    
+}
