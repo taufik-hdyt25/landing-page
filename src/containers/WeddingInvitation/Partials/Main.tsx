@@ -11,8 +11,9 @@ const MainPage = () => {
     "galery-section",
     "ucapan-section",
   ];
-  const active = useActiveSection(ids);
-  console.log(active);
+
+  const active: any = useActiveSection(ids) || "home-section";
+
   return (
     <Box>
       <Grid templateColumns={{ base: "1fr", md: "1fr 378px" }} h={"100vh"}>
@@ -53,7 +54,7 @@ const MainPage = () => {
         </GridItem>
         <GridItem pos={"relative"} overflowY={"auto"}>
           <Home />
-          <NavigationBottom />
+          <NavigationBottom active={active} />
         </GridItem>
       </Grid>
     </Box>

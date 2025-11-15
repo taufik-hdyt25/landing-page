@@ -10,9 +10,16 @@ import {
 } from "lucide-react";
 import { JSX } from "react";
 
-interface IProps {}
+interface IProps {
+  active?:
+    | "home-section"
+    | "mempelai-section"
+    | "tanggal-section"
+    | "galery-section"
+    | "ucapan-section";
+}
 
-const NavigationBottom: React.FC<IProps> = ({}): JSX.Element => {
+const NavigationBottom: React.FC<IProps> = ({ active }): JSX.Element => {
   return (
     <Center
       bg={"#212529"}
@@ -34,8 +41,16 @@ const NavigationBottom: React.FC<IProps> = ({}): JSX.Element => {
           el?.scrollIntoView({ behavior: "smooth" });
         }}
       >
-        <HomeIcon style={{ color: "white" }} />
-        <Text fontSize={"sm"} color={"white"}>
+        <HomeIcon
+          style={{
+            color:
+              active === "home-section" ? "white" : "rgba(255,255,255,0.4)",
+          }}
+        />
+        <Text
+          fontSize={"sm"}
+          color={active === "home-section" ? "white" : "rgba(255,255,255,0.4)"}
+        >
           Home
         </Text>
       </Flex>
@@ -48,8 +63,18 @@ const NavigationBottom: React.FC<IProps> = ({}): JSX.Element => {
           el?.scrollIntoView({ behavior: "smooth" });
         }}
       >
-        <Users style={{ color: "white" }} />
-        <Text fontSize={"sm"} color={"white"}>
+        <Users
+          style={{
+            color:
+              active === "mempelai-section" ? "white" : "rgba(255,255,255,0.4)",
+          }}
+        />
+        <Text
+          fontSize={"sm"}
+          color={
+            active === "mempelai-section" ? "white" : "rgba(255,255,255,0.4)"
+          }
+        >
           Mempelai
         </Text>
       </Flex>
@@ -62,8 +87,18 @@ const NavigationBottom: React.FC<IProps> = ({}): JSX.Element => {
           el?.scrollIntoView({ behavior: "smooth" });
         }}
       >
-        <CalendarHeart style={{ color: "white" }} />
-        <Text fontSize={"sm"} color={"white"}>
+        <CalendarHeart
+          style={{
+            color:
+              active === "tanggal-section" ? "white" : "rgba(255,255,255,0.4)",
+          }}
+        />
+        <Text
+          fontSize={"sm"}
+          color={
+            active === "tanggal-section" ? "white" : "rgba(255,255,255,0.4)"
+          }
+        >
           Tanggal
         </Text>
       </Flex>
@@ -76,8 +111,18 @@ const NavigationBottom: React.FC<IProps> = ({}): JSX.Element => {
           el?.scrollIntoView({ behavior: "smooth" });
         }}
       >
-        <Images style={{ color: "white" }} />
-        <Text fontSize={"sm"} color={"white"}>
+        <Images
+          style={{
+            color:
+              active === "galery-section" ? "white" : "rgba(255,255,255,0.4)",
+          }}
+        />
+        <Text
+          fontSize={"sm"}
+          color={
+            active === "galery-section" ? "white" : "rgba(255,255,255,0.4)"
+          }
+        >
           Galery
         </Text>
       </Flex>
@@ -90,8 +135,18 @@ const NavigationBottom: React.FC<IProps> = ({}): JSX.Element => {
           el?.scrollIntoView({ behavior: "smooth" });
         }}
       >
-        <MessageCircle style={{ color: "white" }} />
-        <Text fontSize={"sm"} color={"white"}>
+        <MessageCircle
+          style={{
+            color:
+              active === "ucapan-section" ? "white" : "rgba(255,255,255,0.4)",
+          }}
+        />
+        <Text
+          fontSize={"sm"}
+          color={
+            active === "ucapan-section" ? "white" : "rgba(255,255,255,0.4)"
+          }
+        >
           Ucapan
         </Text>
       </Flex>
