@@ -12,7 +12,8 @@ const MainPage = () => {
     "ucapan-section",
   ];
 
-  const active: any = useActiveSection(ids) || "home-section";
+  const active: any =
+    useActiveSection(ids, "scroll-container") || "home-section";
 
   return (
     <Box>
@@ -52,7 +53,7 @@ const MainPage = () => {
             </Box>
           </Center>
         </GridItem>
-        <GridItem pos={"relative"} overflowY={"auto"}>
+        <GridItem pos={"relative"} overflowY={"auto"} id="scroll-container">
           <Home />
           <NavigationBottom active={active} />
         </GridItem>

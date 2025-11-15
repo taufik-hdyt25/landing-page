@@ -1,4 +1,5 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box, HStack, Text } from "@chakra-ui/react";
+import { BanknoteArrowUp, User } from "lucide-react";
 
 const UcapanSection = () => {
   return (
@@ -33,6 +34,16 @@ const UcapanSection = () => {
           Dengan hormat, bagi Anda yang ingin <br /> memberikan tanda kasih
           kepada kami, dapat <br /> melalui:
         </Text>
+        <Box bg={"#343A40"} p={3} mx={3} shadow={"lg"} mt={10}>
+          <HStack>
+            <BanknoteArrowUp style={{ color: "rgba(255,255,255,0.5)" }} />
+            <Text>Transfer</Text>
+          </HStack>
+          <HStack mt={3}>
+            <User style={{ color: "rgba(255,255,255,0.5)" }} />
+            <Text>Riski Siapa?</Text>
+          </HStack>
+        </Box>
       </Box>
     </Box>
   );
