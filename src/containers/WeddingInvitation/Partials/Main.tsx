@@ -15,6 +15,8 @@ const MainPage = () => {
   const active: any =
     useActiveSection(ids, "scroll-container") || "home-section";
 
+  console.log(active);
+
   return (
     <Box>
       <Grid templateColumns={{ base: "1fr", md: "1fr 378px" }} h={"100vh"}>
@@ -53,7 +55,12 @@ const MainPage = () => {
             </Box>
           </Center>
         </GridItem>
-        <GridItem pos={"relative"} overflowY={"auto"} id="scroll-container">
+        <GridItem
+          id="scroll-container"
+          pos="relative"
+          overflowY="auto"
+          h="100vh"
+        >
           <Home />
           <NavigationBottom active={active} />
         </GridItem>
