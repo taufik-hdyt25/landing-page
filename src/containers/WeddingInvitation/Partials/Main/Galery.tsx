@@ -2,6 +2,7 @@
 import { Box, Stack, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import GaleryCaoursel from "./Animation/Carousel";
+import GaleryCarousel from "./Animation/Carousel";
 const MotionStack = motion(Stack);
 
 const GalerySection = () => {
@@ -29,8 +30,7 @@ const GalerySection = () => {
         transition={{ duration: 1.2, ease: "easeOut" }}
         viewport={{ once: false, amount: 0.2 }}
       >
-        {/* <GaleryCaoursel />
-        <GaleryCaoursel /> */}
+        <GaleryCarousel />
       </MotionStack>
     </Box>
   );

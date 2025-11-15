@@ -1,15 +1,7 @@
 "use client";
 
-import { Box, Image } from "@chakra-ui/react";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-
-const responsive = {
-  superLargeDesktop: { breakpoint: { max: 4000, min: 1536 }, items: 1 },
-  desktop: { breakpoint: { max: 1536, min: 1024 }, items: 1 },
-  tablet: { breakpoint: { max: 1024, min: 640 }, items: 1 },
-  mobile: { breakpoint: { max: 640, min: 300 }, items: 1 },
-};
+import { Box, Image, Flex } from "@chakra-ui/react";
+import { useEffect, useRef, useState } from "react";
 
 const images = [
   "https://shorthand.com/the-craft/raster-images/assets/5kVrMqC0wp/sh-unsplash_5qt09yibrok-4096x2731.jpeg",
@@ -17,30 +9,83 @@ const images = [
   "https://shorthand.com/the-craft/raster-images/assets/5kVrMqC0wp/sh-unsplash_5qt09yibrok-4096x2731.jpeg",
 ];
 
-export default function GaleryCaoursel() {
+export default function Carousel() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [index, setIndex] = useState(0);
+
+  // Auto slide
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const next = (index + 1) % images.length;
+      scrollToIndex(next);
+      setIndex(next);
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, [index]);
+
+  const scrollToIndex = (i: number) => {
+    scrollRef.current?.scrollTo({
+      left: scrollRef.current.clientWidth * i,
+      behavior: "smooth",
+    });
+  };
+
+  // Detect slide when swipe is done
+  const handleScroll = () => {
+    if (!scrollRef.current) return;
+    const scrollLeft = scrollRef.current.scrollLeft;
+    const width = scrollRef.current.clientWidth;
+
+    const newIndex = Math.round(scrollLeft / width);
+    setIndex(newIndex);
+  };
+
   return (
-    <div style={{ width: "100%", minWidth: "100%" }}>
-      <Carousel
-        responsive={responsive}
-        infinite
-        autoPlay
-        autoPlaySpeed={2000}
-        arrows={false}
-        containerClass="carousel-container"
+    <Box w="full" overflow="hidden" position="relative">
+      {/* SWIPE CAROUSEL */}
+      <Flex
+        ref={scrollRef}
+        overflowX="scroll"
+        scrollSnapType="x mandatory"
+        onScroll={handleScroll}
+        sx={{
+          scrollbarWidth: "none",
+          "&::-webkit-scrollbar": { display: "none" },
+        }}
+        gap={4}
       >
-        {images.map((src, index) => (
-          <Box key={index}>
+        {images.map((src, idx) => (
+          <Box key={idx} flex="0 0 100%" scrollSnapAlign="center">
             <Image
               src={src}
-              alt={`Slide ${index + 1}`}
-              width="100%"
-              height={{ base: "200px", md: "178px" }}
+              w="100%"
+              h={{ base: "220px", md: "180px" }}
               objectFit="cover"
               rounded="xl"
             />
           </Box>
         ))}
-      </Carousel>
-    </div>
+      </Flex>
+
+      <Flex
+        position="absolute"
+        bottom="12px"
+        left="50%"
+        transform="translateX(-50%)"
+        gap={2}
+      >
+        {images.map((_, i) => (
+          <Box
+            key={i}
+            h="4px"
+            w={i === index ? "28px" : "14px"}
+            bg={i === index ? "white" : "whiteAlpha.500"}
+            rounded="full"
+            transition="all 0.3s"
+          />
+        ))}
+      </Flex>
+    </Box>
   );
 }
