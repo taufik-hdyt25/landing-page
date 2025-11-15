@@ -41,8 +41,10 @@ const MainPage = () => {
             </Box>
           </Center>
         </GridItem>
-        <GridItem overflowY={"auto"} pos={"relative"}>
-          <Home />
+        <GridItem pos={"relative"}>
+          <Box overflowY={"auto"}>
+            <Home />
+          </Box>
           <NavigationBottom />
         </GridItem>
       </Grid>
