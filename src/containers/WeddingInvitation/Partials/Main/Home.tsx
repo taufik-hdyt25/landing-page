@@ -164,7 +164,14 @@ const Home = () => {
           <HeartAnimation />
         </Flex>
 
-        <CenterBox flexDirection={"column"} pos={"relative"}>
+        <CenterBox
+          flexDirection={"column"}
+          pos={"relative"}
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          viewport={{ once: false, amount: 0.2 }}
+        >
           <Box p={0.5} bg={"white"} rounded={"full"} mt={3}>
             <Image h={44} w={44} rounded={"full"} src="/images/cowo.webp" />
           </Box>
