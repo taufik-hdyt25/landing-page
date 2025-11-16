@@ -9,37 +9,51 @@ import {
 } from "next/font/google";
 import "./global.css";
 import Providers from "./providers";
+import { configEnv } from "@/lib/configEnv";
 
 export const metadata: Metadata = {
   title: {
-    default: "Aplikasi Saya",
+    default: "Wedding Invitation",
     template: "%s",
   },
-  description: "Aplikasi web modern dengan fitur lengkap.",
-  keywords: ["aplikasi", "web", "react", "nextjs", "shadcn"],
+  description:
+    "Undangan pernikahan modern dengan tampilan elegan, informasi lengkap, dan akses mudah untuk para tamu.",
+  keywords: [
+    "wedding invitation",
+    "undangan pernikahan",
+    "digital wedding",
+    "undangan online",
+    "acara pernikahan",
+  ],
   robots: "index, follow",
+
+  metadataBase: new URL(`${configEnv.domainUrl}`),
+
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://example.com",
-    siteName: "Aplikasi Saya",
+    url: configEnv.domainUrl,
+    siteName: "Wedding Invitation",
+    title: "Wedding Invitation",
+    description:
+      "Undangan pernikahan digital yang elegan, interaktif, dan mudah dibagikan.",
     images: [
       {
-        url: "https://example.com/og.jpg",
+        url: "",
         width: 1200,
         height: 630,
-        alt: "Aplikasi Saya OG",
+        alt: "Wedding Invitation",
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
-    site: "@nama_twitter",
-    title: "Aplikasi Saya",
-    description: "Aplikasi web modern dengan fitur lengkap.",
-    images: ["https://example.com/og.jpg"],
+    title: "Wedding Invitation",
+    description:
+      "Undangan pernikahan digital yang elegan, interaktif, dan mudah dibagikan.",
+    images: [""],
   },
-  metadataBase: new URL("https://example.com"),
 };
 
 const Lobster = Lobster_Two({
