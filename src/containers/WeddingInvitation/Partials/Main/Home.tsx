@@ -12,14 +12,14 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { CalendarHeart, Heart, Music2, VolumeX } from "lucide-react";
+import { CalendarHeart, Heart } from "lucide-react";
 import moment from "moment";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import HeartAnimation from "./Animation/HeartAnimation";
 import GalerySection from "./Galery";
+import AudioPlay from "./Partials/AudioPlay";
 import TanggalSection from "./Tanggal";
 import UcapanSection from "./Ucapan";
-import AudioPlay from "./Partials/AudioPlay";
 const MotionBox = motion(Box);
 const CenterBox = motion(Center);
 const HeartMotion = motion(Heart);
