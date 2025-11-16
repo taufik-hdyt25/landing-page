@@ -1,3 +1,4 @@
+import { useCopyToClipboardById } from "@/hooks/useCopyClipboard";
 import {
   Accordion,
   AccordionButton,
@@ -12,7 +13,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import {
-  BanknoteArrowUp,
+  Check,
   Copy,
   CreditCard,
   Gift,
@@ -23,8 +24,9 @@ import {
   MapPin,
   Music,
   PhoneCall,
-  User,
 } from "lucide-react";
+import { MdOutlinePayments } from "react-icons/md";
+import { TbCreditCardPay } from "react-icons/tb";
 import FormUcapan from "./Partials/FormUcapan";
 import ListUcapan from "./Partials/ListUcapan";
 import Pagination from "./Partials/Pagination";
@@ -181,6 +183,8 @@ const UcapanSection = () => {
 export default UcapanSection;
 
 const GiftSection = () => {
+  const { copied, copyToClipboard } = useCopyToClipboardById();
+
   return (
     <Box>
       <Box bg={"#343A40"} p={0} mx={3} shadow={"lg"} mt={10} rounded={"lg"}>
@@ -190,7 +194,7 @@ const GiftSection = () => {
               <AccordionButton>
                 <Box as="span" flex="1" textAlign="left" fontSize={"sm"}>
                   <HStack>
-                    <BanknoteArrowUp
+                    <MdOutlinePayments
                       style={{
                         color: "rgba(255,255,255,0.5)",
                         width: 24,
@@ -199,16 +203,16 @@ const GiftSection = () => {
                     />
                     <Text>Transfer</Text>
                   </HStack>
-                  <HStack mt={3}>
-                    <User
+                  {/* <HStack mt={3}>
+                    <FiUser
                       style={{
                         color: "rgba(255,255,255,0.5)",
-                        width: 24,
-                        height: 24,
+                        width: 20,
+                        height: 20,
                       }}
                     />
                     <Text>Taufik H</Text>
-                  </HStack>
+                  </HStack> */}
                 </Box>
 
                 <Flex
@@ -236,15 +240,30 @@ const GiftSection = () => {
                 />
                 <Text>Bank Central Asia</Text>
               </HStack>
-              <HStack mt={3}>
-                <CreditCard
-                  style={{
-                    color: "rgba(255,255,255,0.5)",
-                    width: 24,
-                    height: 24,
-                  }}
-                />
-                <Text>0050724352</Text>
+              <HStack mt={3} justify={"space-between"}>
+                <HStack>
+                  <CreditCard
+                    style={{
+                      color: "rgba(255,255,255,0.5)",
+                      width: 24,
+                      height: 24,
+                    }}
+                  />
+                  <Text>0050724352</Text>
+                </HStack>
+                <Box
+                  onClick={() => copyToClipboard("bca", "083871940605")}
+                  as="span"
+                  cursor="pointer"
+                  color="rgba(255,255,255,0.5)"
+                  _hover={{ color: "white" }}
+                >
+                  {copied?.bca ? (
+                    <Check width={14} height={14} />
+                  ) : (
+                    <Copy width={14} height={14} />
+                  )}
+                </Box>
               </HStack>
             </AccordionPanel>
           </AccordionItem>
@@ -257,25 +276,25 @@ const GiftSection = () => {
               <AccordionButton>
                 <Box as="span" flex="1" textAlign="left" fontSize={"sm"}>
                   <HStack>
-                    <BanknoteArrowUp
+                    <TbCreditCardPay
                       style={{
                         color: "rgba(255,255,255,0.5)",
                         width: 24,
                         height: 24,
                       }}
                     />
-                    <Text>Qris</Text>
+                    <Text>Gopay</Text>
                   </HStack>
-                  <HStack mt={3}>
-                    <User
+                  {/* <HStack mt={3}>
+                    <FiUser
                       style={{
                         color: "rgba(255,255,255,0.5)",
-                        width: 24,
-                        height: 24,
+                        width: 20,
+                        height: 20,
                       }}
                     />
                     <Text>Taufik H</Text>
-                  </HStack>
+                  </HStack> */}
                 </Box>
 
                 <Flex
@@ -293,25 +312,30 @@ const GiftSection = () => {
             </h2>
             <AccordionPanel pb={4} fontSize={"sm"}>
               <Divider />
-              <HStack mt={3}>
-                <Landmark
-                  style={{
-                    color: "rgba(255,255,255,0.5)",
-                    width: 24,
-                    height: 24,
-                  }}
-                />
-                <Text>Bank Central Asia</Text>
-              </HStack>
-              <HStack mt={3}>
-                <CreditCard
-                  style={{
-                    color: "rgba(255,255,255,0.5)",
-                    width: 24,
-                    height: 24,
-                  }}
-                />
-                <Text>0050724352</Text>
+              <HStack mt={3} justify={"space-between"}>
+                <Flex align={"center"} gap={1}>
+                  <PhoneCall
+                    style={{
+                      color: "rgba(255,255,255,0.5)",
+                      width: 20,
+                      height: 20,
+                    }}
+                  />
+                  <Text>083871940605</Text>
+                </Flex>
+                <Box
+                  onClick={() => copyToClipboard("gopay", "083871940605")}
+                  as="span"
+                  cursor="pointer"
+                  color="rgba(255,255,255,0.5)"
+                  _hover={{ color: "white" }}
+                >
+                  {copied?.gopay ? (
+                    <Check width={14} height={14} />
+                  ) : (
+                    <Copy width={14} height={14} />
+                  )}
+                </Box>
               </HStack>
             </AccordionPanel>
           </AccordionItem>
@@ -333,16 +357,16 @@ const GiftSection = () => {
                     />
                     <Text>Gift</Text>
                   </HStack>
-                  <HStack mt={3}>
-                    <User
+                  {/* <HStack mt={3}>
+                    <FiUser
                       style={{
                         color: "rgba(255,255,255,0.5)",
-                        width: 24,
-                        height: 24,
+                        width: 20,
+                        height: 20,
                       }}
                     />
                     <Text>Taufik H</Text>
-                  </HStack>
+                  </HStack> */}
                 </Box>
 
                 <Flex
@@ -372,12 +396,17 @@ const GiftSection = () => {
                   <Text>083871940605</Text>
                 </Flex>
                 <Box
+                  onClick={() => copyToClipboard("gifthp", "083871940605")}
                   as="span"
                   cursor="pointer"
                   color="rgba(255,255,255,0.5)"
                   _hover={{ color: "white" }}
                 >
-                  <Copy width={14} height={14} />
+                  {copied?.gifthp ? (
+                    <Check width={14} height={14} />
+                  ) : (
+                    <Copy width={14} height={14} />
+                  )}
                 </Box>
               </HStack>
               <HStack mt={3} justify={"space-between"}>
@@ -397,8 +426,15 @@ const GiftSection = () => {
                   cursor="pointer"
                   color="rgba(255,255,255,0.5)"
                   _hover={{ color: "white" }}
+                  onClick={() =>
+                    copyToClipboard("address", "RT 10 RW 02, Desa Pajerukan,")
+                  }
                 >
-                  <Copy width={14} height={14} />
+                  {copied?.address ? (
+                    <Check width={14} height={14} />
+                  ) : (
+                    <Copy width={14} height={14} />
+                  )}
                 </Box>
               </HStack>
             </AccordionPanel>

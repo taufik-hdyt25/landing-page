@@ -9,7 +9,10 @@ import {
   Text,
   Textarea,
 } from "@chakra-ui/react";
-import { CircleUser, MessageCircle, Send, UserRoundCheck } from "lucide-react";
+import { Send } from "lucide-react";
+import { FaUserCheck } from "react-icons/fa";
+import { IoChatbubblesSharp } from "react-icons/io5";
+import { RiUser2Fill } from "react-icons/ri";
 
 const FormUcapan = () => {
   return (
@@ -31,7 +34,7 @@ const FormUcapan = () => {
             gap={1}
             alignItems={"center"}
           >
-            <CircleUser
+            <RiUser2Fill
               style={{ color: "rgba(255,255,255,0.8)", width: 24, height: 24 }}
             />{" "}
             Nama
@@ -50,7 +53,7 @@ const FormUcapan = () => {
             gap={1}
             alignItems={"center"}
           >
-            <UserRoundCheck
+            <FaUserCheck
               style={{ color: "rgba(255,255,255,0.8)", width: 24, height: 24 }}
             />{" "}
             Kehadiran
@@ -58,7 +61,7 @@ const FormUcapan = () => {
           <Select
             border={"1px solid rgba(255,255,255,0.2)"}
             rounded={"full"}
-            placeholder="Pilib kehadiran"
+            placeholder="Pilih kehadiran"
           >
             <option value="option1">✅ Hadir</option>
             <option value="option2">❌ Tidak bisa hadir</option>
@@ -71,7 +74,7 @@ const FormUcapan = () => {
             gap={1}
             alignItems={"center"}
           >
-            <MessageCircle
+            <IoChatbubblesSharp
               style={{ color: "rgba(255,255,255,0.8)", width: 24, height: 24 }}
             />{" "}
             Ucapan & Doa

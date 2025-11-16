@@ -7,8 +7,9 @@ import {
   Text,
   Textarea,
 } from "@chakra-ui/react";
-import { BadgeCheck, CornerUpLeft } from "lucide-react";
 import { useState } from "react";
+import { IoMdCheckmarkCircle } from "react-icons/io";
+import { IoArrowUndo } from "react-icons/io5";
 
 const ListUcapan = () => {
   const [isReply, setIsReply] = useState(false);
@@ -17,14 +18,15 @@ const ListUcapan = () => {
     <Box bg={"#343A40"} p={3} shadow={"lg"} mt={5} rounded={"lg"}>
       <HStack justify={"space-between"}>
         <Text fontSize={"sm"} display={"flex"} gap={1} align={"center"}>
-          Hallo <BadgeCheck style={{ width: 18, height: 18 }} fill="green" />
+          Sahabat{" "}
+          <IoMdCheckmarkCircle style={{ width: 18, height: 18 }} fill="green" />
         </Text>
         <Text fontSize={"xs"}>3 Jam yang lalu</Text>
       </HStack>
       <Divider my={2} />
       <Text fontSize={"1rem"}>
         Anjir keren banget nih jadi pengen smoga menjadi keluarga yang sakinah
-        mawadah dan warohkah yah
+        mawadah dan warohmah yah
       </Text>
 
       {!isReply && (
@@ -41,7 +43,7 @@ const ListUcapan = () => {
       {isReply && (
         <Box>
           <Flex align={"center"} gap={1} mt={2}>
-            <CornerUpLeft style={{ width: 18, height: 18, color: "white" }} />
+            <IoArrowUndo style={{ width: 18, height: 18, color: "white" }} />
             <Text fontSize={"sm"}>Reply</Text>
           </Flex>
           <Textarea

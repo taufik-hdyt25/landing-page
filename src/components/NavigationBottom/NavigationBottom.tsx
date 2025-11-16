@@ -1,14 +1,11 @@
 "use client";
 
 import { Center, Flex, Text } from "@chakra-ui/react";
-import {
-  CalendarHeart,
-  HomeIcon,
-  Images,
-  MessageCircle,
-  Users,
-} from "lucide-react";
 import { JSX } from "react";
+import { GrGallery } from "react-icons/gr";
+import { IoChatbubblesOutline, IoPeople } from "react-icons/io5";
+import { LuCalendarHeart } from "react-icons/lu";
+import { RiHome6Line } from "react-icons/ri";
 
 interface IProps {
   active?:
@@ -38,10 +35,14 @@ const NavigationBottom: React.FC<IProps> = ({ active }): JSX.Element => {
           el?.scrollIntoView({ behavior: "smooth" });
         }}
       >
-        <HomeIcon
+        <RiHome6Line
           style={{
             color:
               active === "home-section" ? "white" : "rgba(255,255,255,0.4)",
+            width: 24,
+            height: 24,
+            transform: active === "home-section" ? "scale(1.1)" : "scale(1)",
+            transition: "transform 0.25s ease, color 0.25s ease",
           }}
         />
         <Text
@@ -60,10 +61,15 @@ const NavigationBottom: React.FC<IProps> = ({ active }): JSX.Element => {
           el?.scrollIntoView({ behavior: "smooth" });
         }}
       >
-        <Users
+        <IoPeople
           style={{
             color:
               active === "mempelai-section" ? "white" : "rgba(255,255,255,0.4)",
+            width: 24,
+            height: 24,
+            transform:
+              active === "mempelai-section" ? "scale(1.1)" : "scale(1)",
+            transition: "transform 0.25s ease, color 0.25s ease",
           }}
         />
         <Text
@@ -84,10 +90,14 @@ const NavigationBottom: React.FC<IProps> = ({ active }): JSX.Element => {
           el?.scrollIntoView({ behavior: "smooth" });
         }}
       >
-        <CalendarHeart
+        <LuCalendarHeart
           style={{
             color:
               active === "tanggal-section" ? "white" : "rgba(255,255,255,0.4)",
+            width: 20,
+            height: 20,
+            transform: active === "tanggal-section" ? "scale(1.1)" : "scale(1)",
+            transition: "transform 0.25s ease, color 0.25s ease",
           }}
         />
         <Text
@@ -108,10 +118,14 @@ const NavigationBottom: React.FC<IProps> = ({ active }): JSX.Element => {
           el?.scrollIntoView({ behavior: "smooth" });
         }}
       >
-        <Images
+        <GrGallery
           style={{
             color:
               active === "galery-section" ? "white" : "rgba(255,255,255,0.4)",
+            width: 18,
+            height: 18,
+            transform: active === "galery-section" ? "scale(1.1)" : "scale(1)",
+            transition: "transform 0.25s ease, color 0.25s ease",
           }}
         />
         <Text
@@ -132,10 +146,14 @@ const NavigationBottom: React.FC<IProps> = ({ active }): JSX.Element => {
           el?.scrollIntoView({ behavior: "smooth" });
         }}
       >
-        <MessageCircle
+        <IoChatbubblesOutline
           style={{
             color:
               active === "ucapan-section" ? "white" : "rgba(255,255,255,0.4)",
+            width: 24,
+            height: 24,
+            transform: active === "ucapan-section" ? "scale(1.1)" : "scale(1)",
+            transition: "transform 0.25s ease, color 0.25s ease",
           }}
         />
         <Text

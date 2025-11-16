@@ -44,7 +44,10 @@ const WeddingInvitation: React.FC<IPagesParams> = ({ params }) => {
           )}
         </Box>
       )}
-      <AudioPlay setWantToPlay={setWantToPlay} wantToPlay={wantToPlay} />
+
+      {isOpen && (
+        <AudioPlay setWantToPlay={setWantToPlay} wantToPlay={wantToPlay} />
+      )}
     </Box>
   );
 };

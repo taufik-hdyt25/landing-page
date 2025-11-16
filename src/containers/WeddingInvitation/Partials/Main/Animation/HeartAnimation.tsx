@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { Heart } from "lucide-react";
+import { BsBalloonHeart } from "react-icons/bs";
 
-const MotionHeart = motion(Heart);
+const MotionHeart = motion(BsBalloonHeart);
 const HeartAnimation = () => {
   return (
     <MotionHeart
@@ -12,7 +12,7 @@ const HeartAnimation = () => {
         marginTop: 20,
       }}
       animate={{
-        y: [0, -6, 0],
+        y: [0, -10, 0],
       }}
       transition={{
         duration: 2,

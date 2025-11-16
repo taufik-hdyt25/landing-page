@@ -362,7 +362,7 @@ const Home = () => {
             <Box
               mt={5}
               overflowY={isOpenStory ? "auto" : "hidden"}
-              maxH="200px"
+              maxH="250px"
               rounded={"md"}
               pos={"relative"}
               css={{
