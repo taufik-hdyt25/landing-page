@@ -1,3 +1,5 @@
+import { generateGoogleCalendarLink } from "@/helpers/calender";
+import { configEnv } from "@/lib/configEnv";
 import {
   AspectRatio,
   Box,
@@ -10,15 +12,14 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { CalendarHeart, Heart } from "lucide-react";
-import { useState } from "react";
+import { CalendarHeart, Heart, Music2, VolumeX } from "lucide-react";
+import moment from "moment";
+import { useRef, useState } from "react";
 import HeartAnimation from "./Animation/HeartAnimation";
 import GalerySection from "./Galery";
 import TanggalSection from "./Tanggal";
 import UcapanSection from "./Ucapan";
-import { generateGoogleCalendarLink } from "@/helpers/calender";
-import moment from "moment";
-import { configEnv } from "@/lib/configEnv";
+import AudioPlay from "./Partials/AudioPlay";
 const MotionBox = motion(Box);
 const CenterBox = motion(Center);
 const HeartMotion = motion(Heart);
@@ -27,7 +28,8 @@ const Home = () => {
   const [isOpenStory, setIsOpenStory] = useState(false);
 
   return (
-    <Box pb={20} overflowX={"hidden"} id="home-section">
+    <Box pb={20} overflowX={"hidden"} id="home-section" pos={"relative"}>
+      <AudioPlay />
       <Box
         position="relative"
         bg="blue.400"
@@ -140,7 +142,6 @@ const Home = () => {
           />
         </Box>
       </Box>
-
       <Box id="mempelai-section" scrollMarginTop={5}>
         <Center flexDirection={"column"}>
           <Text
