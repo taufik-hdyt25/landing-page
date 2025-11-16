@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 const AudioPlay = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const [wantToPlay, setWantToPlay] = useState(false);
   useEffect(() => {
     const audio = audioRef.current;
