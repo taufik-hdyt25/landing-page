@@ -58,7 +58,7 @@ const ListUcapan = ({ data, params }: IProps) => {
       <HStack justify={"space-between"}>
         <Text fontSize={"sm"} display={"flex"} gap={1} align={"center"}>
           {data?.commentBy}
-          {data?.attendance === "Hadir" ? (
+          {data?.attendance === "hadir" ? (
             <IoMdCheckmarkCircle
               style={{ width: 18, height: 18 }}
               fill="green"
