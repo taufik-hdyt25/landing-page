@@ -100,30 +100,32 @@ const UcapanSection = ({ params }: IProps) => {
               ))}
             </Stack>
           )}
-          <Pagination
-            data={{
-              ...comments?.pagination,
-              count: comments?.data?.length || 0,
-            }}
-            handleNext={() => {
-              if (
-                comments &&
-                Number(params.page) >= comments?.pagination?.totalPages
-              )
-                return;
-              const param = new URLSearchParams({
-                page: `${Number(params.page) + 1}`,
-              });
-              router.push(`/comments?${param.toString()}`);
-            }}
-            handlePrev={() => {
-              if (Number(params.page) === 1) return;
-              const param = new URLSearchParams({
-                page: `${Number(params.page) - 1}`,
-              });
-              router.push(`/comments?${param.toString()}`);
-            }}
-          />
+          {comments && comments?.data?.length > 0 && !isLoading && (
+            <Pagination
+              data={{
+                ...comments?.pagination,
+                count: comments?.data?.length || 0,
+              }}
+              handleNext={() => {
+                if (
+                  comments &&
+                  Number(params.page) >= comments?.pagination?.totalPages
+                )
+                  return;
+                const param = new URLSearchParams({
+                  page: `${Number(params.page) + 1}`,
+                });
+                router.push(`/comments?${param.toString()}`);
+              }}
+              handlePrev={() => {
+                if (Number(params.page) === 1) return;
+                const param = new URLSearchParams({
+                  page: `${Number(params.page) - 1}`,
+                });
+                router.push(`/comments?${param.toString()}`);
+              }}
+            />
+          )}
         </Box>
 
         <Box
