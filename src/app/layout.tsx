@@ -16,6 +16,11 @@ export const metadata: Metadata = {
     default: "Wedding Invitation",
     template: "%s",
   },
+  icons: {
+    icon: "/logo.ico",
+    shortcut: "/logo.ico",
+    apple: "/logo.ico",
+  },
   description:
     "Undangan pernikahan modern dengan tampilan elegan, informasi lengkap, dan akses mudah untuk para tamu.",
   keywords: [
