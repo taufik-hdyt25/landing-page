@@ -21,6 +21,7 @@ import {
   Instagram,
   Landmark,
   MapPin,
+  Music,
   PhoneCall,
   User,
 } from "lucide-react";
@@ -118,7 +119,7 @@ const UcapanSection = () => {
         <Flex gap={1}>
           <Github
             style={{
-              color: " rgba(255, 255, 255, 0.4)",
+              color: " rgba(255, 255, 255, 0.8)",
               width: 18,
               height: 18,
             }}
@@ -137,7 +138,7 @@ const UcapanSection = () => {
         <Flex gap={1}>
           <Instagram
             style={{
-              color: " rgba(255, 255, 255, 0.4)",
+              color: " rgba(255, 255, 255, 0.8)",
               width: 18,
               height: 18,
             }}
@@ -151,6 +152,25 @@ const UcapanSection = () => {
             color={"blue.500"}
           >
             Intagram
+          </Button>
+        </Flex>
+        <Flex gap={1}>
+          <Music
+            style={{
+              color: " rgba(255, 255, 255, 0.8)",
+              width: 18,
+              height: 18,
+            }}
+          />
+          <Button
+            as="a"
+            href="https://youtu.be/ZeFpigRaXbI?si=LKu2g9bxEg8OPObl"
+            target="_blank"
+            rel="noopener noreferrer"
+            variant={"link"}
+            color={"blue.500"}
+          >
+            Music
           </Button>
         </Flex>
       </Center>
