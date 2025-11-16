@@ -1,9 +1,9 @@
 import callAPI from "@/utils/fetcher/fetcher";
 
-export const getListProductFromAPI = () =>
+export const getListComments = () =>
   callAPI({
     method: "GET",
-    servicesPath: "posts",
+    servicesPath: "comments",
   });
 
 export const postProductFromAPI = (params: { name: string }) =>

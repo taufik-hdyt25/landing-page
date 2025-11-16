@@ -1,3 +1,4 @@
+import { IComments } from "@/services/comment/comment.types";
 import {
   Box,
   Button,
@@ -7,27 +8,31 @@ import {
   Text,
   Textarea,
 } from "@chakra-ui/react";
+import moment from "moment";
 import { useState } from "react";
 import { IoMdCheckmarkCircle } from "react-icons/io";
 import { IoArrowUndo } from "react-icons/io5";
-
-const ListUcapan = () => {
+moment.locale("id");
+interface IProps {
+  data?: IComments;
+}
+const ListUcapan = ({ data }: IProps) => {
   const [isReply, setIsReply] = useState(false);
+  // const [showReply, setShowReply] = useState(false);
+  // const { data: replies } = actionGetListReplies(data?.id || 0, true);
+  // const reply = replies && (replies as any);
 
   return (
     <Box bg={"#343A40"} p={3} shadow={"lg"} mt={5} rounded={"lg"}>
       <HStack justify={"space-between"}>
         <Text fontSize={"sm"} display={"flex"} gap={1} align={"center"}>
-          Sahabat{" "}
+          {data?.commentBy}
           <IoMdCheckmarkCircle style={{ width: 18, height: 18 }} fill="green" />
         </Text>
-        <Text fontSize={"xs"}>3 Jam yang lalu</Text>
+        <Text fontSize={"xs"}>{moment(data?.createdAt).fromNow()}</Text>
       </HStack>
       <Divider my={2} />
-      <Text fontSize={"1rem"}>
-        Anjir keren banget nih jadi pengen smoga menjadi keluarga yang sakinah
-        mawadah dan warohmah yah
-      </Text>
+      <Text fontSize={"1rem"}>{data?.content}</Text>
 
       {!isReply && (
         <Button

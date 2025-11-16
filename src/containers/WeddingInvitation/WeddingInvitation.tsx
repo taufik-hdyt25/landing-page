@@ -31,7 +31,7 @@ const WeddingInvitation: React.FC<IPagesParams> = ({ params }) => {
       )}
       {isProd === "false" && (
         <Box w="100%" h="100vh">
-          {!isOpen ? (
+          {isOpen ? (
             <OpenFirst
               params={params}
               onOpenInviataion={() => {

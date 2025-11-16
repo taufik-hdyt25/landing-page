@@ -1,4 +1,6 @@
 import { useCopyToClipboardById } from "@/hooks/useCopyClipboard";
+import { actionGetListComment } from "@/services/comment/comment.func";
+import { IComments } from "@/services/comment/comment.types";
 import {
   Accordion,
   AccordionButton,
@@ -10,6 +12,7 @@ import {
   Divider,
   Flex,
   HStack,
+  Stack,
   Text,
 } from "@chakra-ui/react";
 import {
@@ -32,6 +35,10 @@ import ListUcapan from "./Partials/ListUcapan";
 import Pagination from "./Partials/Pagination";
 
 const UcapanSection = () => {
+  const { data } = actionGetListComment();
+
+  const comments = data && (data as any);
+
   return (
     <Box>
       <Box
@@ -69,7 +76,13 @@ const UcapanSection = () => {
         <FormUcapan />
 
         <Box p={3}>
-          <ListUcapan />
+          {comments && comments?.data?.length > 0 && (
+            <Stack>
+              {comments?.data?.map((val: IComments, idx: number) => (
+                <ListUcapan key={idx + "comment"} data={val} />
+              ))}
+            </Stack>
+          )}
           <Pagination />
         </Box>
 
