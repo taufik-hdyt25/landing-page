@@ -17,7 +17,6 @@ import moment from "moment";
 import { useState } from "react";
 import HeartAnimation from "./Animation/HeartAnimation";
 import GalerySection from "./Galery";
-import AudioPlay from "./Partials/AudioPlay";
 import TanggalSection from "./Tanggal";
 import UcapanSection from "./Ucapan";
 const MotionBox = motion(Box);
@@ -29,7 +28,6 @@ const Home = () => {
 
   return (
     <Box pb={20} overflowX={"hidden"} id="home-section" pos={"relative"}>
-      <AudioPlay />
       <Box
         position="relative"
         bg="blue.400"

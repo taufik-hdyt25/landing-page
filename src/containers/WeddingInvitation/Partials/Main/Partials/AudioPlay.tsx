@@ -1,11 +1,15 @@
 import { Box } from "@chakra-ui/react";
 import { Music2, VolumeX } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 
-const AudioPlay = () => {
+interface IProps {
+  setWantToPlay: Dispatch<SetStateAction<boolean>>;
+  wantToPlay: boolean;
+}
+const AudioPlay = ({ setWantToPlay, wantToPlay }: IProps) => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [wantToPlay, setWantToPlay] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
