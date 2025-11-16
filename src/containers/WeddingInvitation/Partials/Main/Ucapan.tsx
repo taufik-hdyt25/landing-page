@@ -57,7 +57,7 @@ const UcapanSection = () => {
         >
           Love Gift
         </Text>
-        <Text textAlign={"center"} fontSize={"sm"}>
+        <Text textAlign={"center"} fontSize={"1rem"}>
           Dengan hormat, bagi Anda yang ingin <br /> memberikan tanda kasih
           kepada kami, dapat <br /> melalui:
         </Text>
@@ -87,7 +87,7 @@ const UcapanSection = () => {
           />
         </Box>
       </Box>
-      <Text fontSize={"sm"} textAlign={"center"}>
+      <Text fontSize={"1rem"} textAlign={"center"}>
         Terima kasih atas perhatian dan doa restu <br /> Anda, yang menjadi
         kebahagiaan serta <br /> kehormatan besar bagi kami.
       </Text>
@@ -110,7 +110,7 @@ const UcapanSection = () => {
       </Text>
       <Divider mx={2} my={5} borderColor={"rgba(255,255,255,0.4)"} />
 
-      <Text my={3} textAlign={"center"} fontSize={"0.7rem"}>
+      <Text my={3} textAlign={"center"} fontSize={"0.8rem"}>
         🤍 Build with Taufik.H
       </Text>
 
@@ -338,7 +338,7 @@ const GiftSection = () => {
                 </Flex>
               </AccordionButton>
             </h2>
-            <AccordionPanel pb={4} fontSize={"sm"}>
+            <AccordionPanel pb={4} fontSize={"1rem"}>
               <Divider />
               <HStack mt={3} justify={"space-between"}>
                 <Flex align={"center"} gap={1}>

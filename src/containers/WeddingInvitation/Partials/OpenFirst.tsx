@@ -6,9 +6,10 @@ const MotionBox = motion(Box);
 
 interface IProps {
   onOpenInviataion?: () => void;
+  params?: any;
 }
 
-const OpenFirst: React.FC<IProps> = ({ onOpenInviataion }) => {
+const OpenFirst: React.FC<IProps> = ({ onOpenInviataion, params }) => {
   return (
     <MotionBox
       display={"flex"}
@@ -40,9 +41,19 @@ const OpenFirst: React.FC<IProps> = ({ onOpenInviataion }) => {
         mt={10}
         textStyle={"fontEsthetic"}
         color={"white"}
+        mb={5}
       >
         Taufik & Hidayat
       </Text>
+
+      {params.to !== "" && (
+        <Box textAlign={"center"}>
+          <Text mt={8} fontSize={"sm"}>
+            Kepada Yth Bapak/Ibu/Saudara/i
+          </Text>
+          <Text>{params?.to}</Text>
+        </Box>
+      )}
 
       <Center>
         <Button
@@ -62,7 +73,7 @@ const OpenFirst: React.FC<IProps> = ({ onOpenInviataion }) => {
           }
           px={10}
           rounded={"full"}
-          mt={10}
+          mt={5}
           color={"black"}
         >
           Open Invitation

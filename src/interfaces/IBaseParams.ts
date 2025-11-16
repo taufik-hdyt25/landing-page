@@ -9,6 +9,7 @@ export interface IQueryParams {
   page?: number;
   length?: number;
   search?: string;
+  to?: string;
 }
 
 export interface IPagesParams {

@@ -181,25 +181,31 @@ const Home = () => {
 
           <Text
             textAlign={"center"}
-            fontSize={34}
+            fontSize={"2.7rem"}
             mt={10}
             textStyle={"fontEsthetic"}
             color={"white"}
           >
-            Taufik
+            Taufik Hidayat
           </Text>
-          <Text fontWeight={"600"} textAlign={"center"} color={"white"} mt={3}>
+          <Text
+            fontSize={"1.2rem"}
+            fontWeight={"600"}
+            textAlign={"center"}
+            color={"white"}
+            mt={3}
+          >
             Putra ke-1
           </Text>
-          <Box fontSize={12}>
+          <Box fontSize={"1rem"}>
             <Text textAlign={"center"} color={"white"}>
-              Bapak ...
+              Bapak saha
             </Text>
             <Text textAlign={"center"} color={"white"}>
               dan
             </Text>
             <Text textAlign={"center"} color={"white"}>
-              Ibu ...
+              Ibu saha
             </Text>
           </Box>
         </CenterBox>
@@ -231,25 +237,31 @@ const Home = () => {
 
           <Text
             textAlign={"center"}
-            fontSize={34}
+            fontSize={"2.7rem"}
             mt={10}
             textStyle={"fontEsthetic"}
             color={"white"}
           >
             Hidayat
           </Text>
-          <Text fontWeight={"600"} textAlign={"center"} color={"white"} mt={3}>
+          <Text
+            fontSize={"1.2rem"}
+            fontWeight={"600"}
+            textAlign={"center"}
+            color={"white"}
+            mt={3}
+          >
             Putri ke-1
           </Text>
-          <Box fontSize={12}>
+          <Box fontSize={"1rem"}>
             <Text textAlign={"center"} color={"white"}>
-              Bapak ...
+              Bapak saha
             </Text>
             <Text textAlign={"center"} color={"white"}>
               dan
             </Text>
             <Text textAlign={"center"} color={"white"}>
-              Ibu ...
+              Ibu saha
             </Text>
           </Box>
         </CenterBox>
@@ -292,7 +304,7 @@ const Home = () => {
               transition={{ duration: 1.2, ease: "easeOut" }}
               viewport={{ once: false, amount: 0.2 }}
               p={5}
-              fontSize={"sm"}
+              fontSize={"1rem"}
               bg={"#343A40"}
               textAlign={"center"}
               shadow={"md"}
@@ -312,7 +324,7 @@ const Home = () => {
               transition={{ duration: 1.2, ease: "easeOut" }}
               viewport={{ once: false, amount: 0.4 }}
               p={5}
-              fontSize={"sm"}
+              fontSize={"1rem"}
               bg={"#343A40"}
               textAlign={"center"}
               shadow={"md"}
@@ -336,7 +348,7 @@ const Home = () => {
             rounded={"3xl"}
             mt={5}
           >
-            <Text fontSize={"2rem"} textStyle={"fontEsthetic"}>
+            <Text fontSize={"2.3rem"} textStyle={"fontEsthetic"}>
               Love Story
             </Text>
             <AspectRatio mt={5} ratio={16 / 9} w="full">

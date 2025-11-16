@@ -9,7 +9,7 @@ import {
   Text,
   Textarea,
 } from "@chakra-ui/react";
-import { CircleUser, MessageCircle, Send } from "lucide-react";
+import { CircleUser, MessageCircle, Send, UserRoundCheck } from "lucide-react";
 
 const FormUcapan = () => {
   return (
@@ -23,10 +23,10 @@ const FormUcapan = () => {
         Ucapan & Doa
       </Text>
 
-      <Stack>
+      <Stack spacing={3}>
         <FormControl color={"white"}>
           <FormLabel
-            fontSize={"sm"}
+            fontSize={"1rem"}
             display={"flex"}
             gap={1}
             alignItems={"center"}
@@ -39,27 +39,25 @@ const FormUcapan = () => {
           <Input
             border={"1px solid rgba(255,255,255,0.2)"}
             rounded={"full"}
-            size={"sm"}
             type="email"
             placeholder="Masukan nama"
           />
         </FormControl>
         <FormControl color={"white"}>
           <FormLabel
-            fontSize={"sm"}
+            fontSize={"1rem"}
             display={"flex"}
             gap={1}
             alignItems={"center"}
           >
-            <CircleUser
+            <UserRoundCheck
               style={{ color: "rgba(255,255,255,0.8)", width: 24, height: 24 }}
             />{" "}
-            Nama
+            Kehadiran
           </FormLabel>
           <Select
             border={"1px solid rgba(255,255,255,0.2)"}
             rounded={"full"}
-            size={"sm"}
             placeholder="Pilib kehadiran"
           >
             <option value="option1">✅ Hadir</option>
@@ -68,7 +66,7 @@ const FormUcapan = () => {
         </FormControl>
         <FormControl color={"white"}>
           <FormLabel
-            fontSize={"sm"}
+            fontSize={"1rem"}
             display={"flex"}
             gap={1}
             alignItems={"center"}
@@ -88,7 +86,6 @@ const FormUcapan = () => {
       <Button
         w={"100%"}
         mt={5}
-        size={"sm"}
         rounded={"full"}
         bg={"#0A6FFD"}
         _hover={{ backgroundColor: "#0A6FFD80" }}

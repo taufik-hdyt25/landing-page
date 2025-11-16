@@ -21,7 +21,7 @@ const TanggalSection = () => {
 
         <CountDownTime />
 
-        <Text fontSize={"xs"} textAlign={"center"} mt={5}>
+        <Text fontSize={"1rem"} textAlign={"center"} mt={5}>
           Dengan memohon rahmat dan ridho Allah <br /> Subhanahu Wa Ta'ala,
           insyaAllah kami akan <br /> menyelenggarakan acara:
         </Text>
@@ -45,7 +45,7 @@ const TanggalSection = () => {
           >
             Akad
           </Text>
-          <Text fontSize={"xs"} textAlign={"center"} mt={3}>
+          <Text fontSize={"1rem"} textAlign={"center"} mt={3}>
             Pukul 10.00 WIB - Selesai
           </Text>
         </MotionBox>
@@ -65,7 +65,7 @@ const TanggalSection = () => {
           >
             Resepsi
           </Text>
-          <Text fontSize={"xs"} textAlign={"center"} mt={3}>
+          <Text fontSize={"1rem"} textAlign={"center"} mt={3}>
             Pukul 13.00 WIB - Selesai
           </Text>
         </MotionBox>
@@ -99,7 +99,7 @@ const TanggalSection = () => {
             </Button>
           </Center>
 
-          <Text fontSize={"xs"} textAlign={"center"} mt={3} mx={3}>
+          <Text fontSize={".9rem"} textAlign={"center"} mt={3} mx={3}>
             RT 10 RW 02, Desa Pajerukan, Kec. Kalibagor, Kab. Banyumas, Jawa
             Tengah 53191.
           </Text>

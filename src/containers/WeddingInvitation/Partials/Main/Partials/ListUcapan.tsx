@@ -22,7 +22,7 @@ const ListUcapan = () => {
         <Text fontSize={"xs"}>3 Jam yang lalu</Text>
       </HStack>
       <Divider my={2} />
-      <Text fontSize={"sm"}>
+      <Text fontSize={"1rem"}>
         Anjir keren banget nih jadi pengen smoga menjadi keluarga yang sakinah
         mawadah dan warohkah yah
       </Text>
