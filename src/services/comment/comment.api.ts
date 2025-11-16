@@ -1,4 +1,5 @@
 import callAPI from "@/utils/fetcher/fetcher";
+import { ICreateComment } from "./comment.types";
 
 export const getListComments = () =>
   callAPI({
@@ -6,10 +7,10 @@ export const getListComments = () =>
     servicesPath: "comments",
   });
 
-export const postProductFromAPI = (params: { name: string }) =>
+export const postCommentFromAPI = (params: ICreateComment) =>
   callAPI({
-    method: "GET",
-    servicesPath: "product",
+    method: "POST",
+    servicesPath: "comments",
     params,
   });
 

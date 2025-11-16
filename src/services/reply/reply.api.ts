@@ -1,4 +1,5 @@
 import callAPI from "@/utils/fetcher/fetcher";
+import { ICreateReply } from "./reply.types";
 
 export const getListReplies = (id: number) =>
   callAPI({
@@ -6,10 +7,10 @@ export const getListReplies = (id: number) =>
     servicesPath: `replies?commentId=${id}`,
   });
 
-export const postProductFromAPI = (params: { name: string }) =>
+export const postReplyFromAPI = (params: ICreateReply) =>
   callAPI({
-    method: "GET",
-    servicesPath: "product",
+    method: "POST",
+    servicesPath: "replies",
     params,
   });
 

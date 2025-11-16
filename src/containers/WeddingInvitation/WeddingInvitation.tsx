@@ -25,7 +25,7 @@ const WeddingInvitation: React.FC<IPagesParams> = ({ params }) => {
               }}
             />
           ) : (
-            <MainPage />
+            <MainPage params={params} />
           )}
         </Box>
       )}
@@ -40,7 +40,7 @@ const WeddingInvitation: React.FC<IPagesParams> = ({ params }) => {
               }}
             />
           ) : (
-            <MainPage />
+            <MainPage params={params} />
           )}
         </Box>
       )}

@@ -12,6 +12,7 @@ import {
   Divider,
   Flex,
   HStack,
+  Skeleton,
   Stack,
   Text,
 } from "@chakra-ui/react";
@@ -33,10 +34,14 @@ import { TbCreditCardPay } from "react-icons/tb";
 import FormUcapan from "./Partials/FormUcapan";
 import ListUcapan from "./Partials/ListUcapan";
 import Pagination from "./Partials/Pagination";
+import { useRouter } from "next/navigation";
 
-const UcapanSection = () => {
-  const { data } = actionGetListComment();
-
+interface IProps {
+  params?: any;
+}
+const UcapanSection = ({ params }: IProps) => {
+  const { data, isLoading } = actionGetListComment();
+  const router = useRouter();
   const comments = data && (data as any);
 
   return (
@@ -73,17 +78,52 @@ const UcapanSection = () => {
         </Text>
 
         <GiftSection />
-        <FormUcapan />
+        <FormUcapan params={params} />
 
         <Box p={3}>
-          {comments && comments?.data?.length > 0 && (
+          {isLoading && (
             <Stack>
-              {comments?.data?.map((val: IComments, idx: number) => (
-                <ListUcapan key={idx + "comment"} data={val} />
+              {[1, 2, 3].map((val, idx) => (
+                <Skeleton
+                  key={"loading" + idx}
+                  bg={"#343A40"}
+                  rounded={"lg"}
+                  height="100px"
+                />
               ))}
             </Stack>
           )}
-          <Pagination />
+          {comments && comments?.data?.length > 0 && !isLoading && (
+            <Stack spacing={3}>
+              {comments?.data?.map((val: IComments, idx: number) => (
+                <ListUcapan params={params} key={idx + "comment"} data={val} />
+              ))}
+            </Stack>
+          )}
+          <Pagination
+            data={{
+              ...comments?.pagination,
+              count: comments?.data?.length || 0,
+            }}
+            handleNext={() => {
+              if (
+                comments &&
+                Number(params.page) >= comments?.pagination?.totalPages
+              )
+                return;
+              const param = new URLSearchParams({
+                page: `${Number(params.page) + 1}`,
+              });
+              router.push(`/comments?${param.toString()}`);
+            }}
+            handlePrev={() => {
+              if (Number(params.page) === 1) return;
+              const param = new URLSearchParams({
+                page: `${Number(params.page) - 1}`,
+              });
+              router.push(`/comments?${param.toString()}`);
+            }}
+          />
         </Box>
 
         <Box

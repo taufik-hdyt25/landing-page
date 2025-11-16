@@ -23,7 +23,10 @@ const MotionBox = motion(Box);
 const CenterBox = motion(Center);
 const HeartMotion = motion(Heart);
 
-const Home = () => {
+interface IProps {
+  params?: any;
+}
+const Home = ({ params }: IProps) => {
   const [isOpenStory, setIsOpenStory] = useState(false);
 
   return (
@@ -442,7 +445,7 @@ const Home = () => {
         </section>
 
         <section id="ucapan-section">
-          <UcapanSection />
+          <UcapanSection params={params} />
         </section>
       </Box>
     </Box>

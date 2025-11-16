@@ -3,7 +3,10 @@ import Home from "./Main/Home";
 import NavigationBottom from "@/components/NavigationBottom/NavigationBottom";
 import { useActiveSection } from "@/hooks/useActiveSection";
 
-const MainPage = () => {
+interface IProps {
+  params?: any;
+}
+const MainPage = ({ params }: IProps) => {
   const ids = [
     "home-section",
     "mempelai-section",
@@ -59,7 +62,7 @@ const MainPage = () => {
           overflowY="auto"
           h="100vh"
         >
-          <Home />
+          <Home params={params} />
           <Box
             pos="fixed"
             bottom={0}

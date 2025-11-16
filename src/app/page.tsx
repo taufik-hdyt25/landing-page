@@ -9,8 +9,9 @@ export const metadata: Metadata = {
 const HomePage = async ({ searchParams, params }: IParams) => {
   const { query } = await generateParams({ searchParams, params });
 
-  const sendParams = {
+  const sendParams: any = {
     to: query?.to ? String(query.to) : "",
+    page: query.page ? String(query.page) : 1,
   };
 
   return <WeddingInvitation params={sendParams} />;

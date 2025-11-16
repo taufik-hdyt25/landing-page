@@ -5,3 +5,9 @@ export interface IRepliies {
   createdAt: string;
   commentId: number;
 }
+
+export interface ICreateReply {
+  replyBy: string;
+  content: string;
+  commentId: number;
+}

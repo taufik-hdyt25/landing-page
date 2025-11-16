@@ -1,5 +1,10 @@
 import { IComments } from "@/services/comment/comment.types";
 import {
+  actionGetListReplies,
+  actionPostReply,
+} from "@/services/reply/reply.func";
+import { IRepliies } from "@/services/reply/reply.types";
+import {
   Box,
   Button,
   Divider,
@@ -8,26 +13,59 @@ import {
   Text,
   Textarea,
 } from "@chakra-ui/react";
+import { useQueryClient } from "@tanstack/react-query";
+import { Loader } from "lucide-react";
 import moment from "moment";
 import { useState } from "react";
-import { IoMdCheckmarkCircle } from "react-icons/io";
+import { FaUserCircle } from "react-icons/fa";
+import { IoMdCheckmarkCircle, IoMdCloseCircle } from "react-icons/io";
 import { IoArrowUndo } from "react-icons/io5";
 moment.locale("id");
 interface IProps {
   data?: IComments;
+  params?: any;
 }
-const ListUcapan = ({ data }: IProps) => {
+const ListUcapan = ({ data, params }: IProps) => {
   const [isReply, setIsReply] = useState(false);
-  // const [showReply, setShowReply] = useState(false);
-  // const { data: replies } = actionGetListReplies(data?.id || 0, true);
-  // const reply = replies && (replies as any);
+  const [showReply, setShowReply] = useState(false);
+  const { mutate: replyComment, isPending: loadingReply } = actionPostReply();
+  const [replyContent, setReplyContent] = useState<string>("");
+  const { data: replies, isLoading } = actionGetListReplies(
+    data?.id || 0,
+    showReply
+  );
+  const reply = replies && (replies as any);
+  const qc = useQueryClient();
+
+  const handleSubmitReply = () => {
+    replyComment(
+      {
+        commentId: data?.id || 0,
+        content: replyContent,
+        replyBy: params?.to !== "" ? params?.to : "user",
+      },
+      {
+        onSuccess: (res) => {
+          qc.invalidateQueries({ queryKey: ["actionGetListReplies"] });
+          setReplyContent("");
+        },
+      }
+    );
+  };
 
   return (
-    <Box bg={"#343A40"} p={3} shadow={"lg"} mt={5} rounded={"lg"}>
+    <Box bg={"#343A40"} p={3} shadow={"lg"} rounded={"lg"}>
       <HStack justify={"space-between"}>
         <Text fontSize={"sm"} display={"flex"} gap={1} align={"center"}>
           {data?.commentBy}
-          <IoMdCheckmarkCircle style={{ width: 18, height: 18 }} fill="green" />
+          {data?.attendance === "Hadir" ? (
+            <IoMdCheckmarkCircle
+              style={{ width: 18, height: 18 }}
+              fill="green"
+            />
+          ) : (
+            <IoMdCloseCircle style={{ width: 18, height: 18 }} fill="red" />
+          )}
         </Text>
         <Text fontSize={"xs"}>{moment(data?.createdAt).fromNow()}</Text>
       </HStack>
@@ -36,13 +74,54 @@ const ListUcapan = ({ data }: IProps) => {
 
       {!isReply && (
         <Button
-          onClick={() => setIsReply(true)}
-          variant={"outline"}
+          onClick={() => {
+            setIsReply(true);
+            setShowReply(true);
+          }}
+          variant={"unstyled"}
           size={"sm"}
-          mt={2}
+          color={"rgba(255,255,255,0.5)"}
         >
           Reply
         </Button>
+      )}
+
+      {showReply && (
+        <Box>
+          {isLoading && (
+            <Loader
+              style={{ color: "white", animation: "spin 1s linear infinite" }}
+            />
+          )}
+          <style jsx>{`
+            @keyframes spin {
+              0% {
+                transform: rotate(0deg);
+              }
+              100% {
+                transform: rotate(360deg);
+              }
+            }
+          `}</style>
+          {reply &&
+            reply?.data?.length > 0 &&
+            !isLoading &&
+            reply?.data?.map((data: IRepliies, index: number) => (
+              <Flex key={index + "reply"} align={"start"} gap={1} mt={1}>
+                <FaUserCircle
+                  style={{
+                    color: "rgba(255,255,255,0.8)",
+                    width: 16,
+                    height: 16,
+                  }}
+                />
+                <Box>
+                  <Text fontSize={"0.8rem"}>{data?.replyBy}</Text>
+                  <Text fontSize={"0.8rem"}>{data?.content}</Text>
+                </Box>
+              </Flex>
+            ))}
+        </Box>
       )}
 
       {isReply && (
@@ -58,17 +137,31 @@ const ListUcapan = ({ data }: IProps) => {
             color={"white"}
             border={"1px solid rgba(255,255,255,0.2)"}
             rows={3}
+            onChange={(e) => setReplyContent(e.target.value)}
+            value={replyContent}
           />
 
           <Flex gap={2} align={"center"} justify={"end"} mt={3}>
             <Button
-              onClick={() => setIsReply(false)}
+              onClick={() => {
+                setIsReply(false);
+                setShowReply(false);
+              }}
               variant={"outline"}
               size={"sm"}
             >
               Cancel
             </Button>
-            <Button variant={"outline"} size={"sm"}>
+            <Button
+              isLoading={loadingReply}
+              onClick={() => {
+                handleSubmitReply();
+              }}
+              isDisabled={!replyContent}
+              variant={"outline"}
+              size={"sm"}
+              _hover={{ color: "white" }}
+            >
               Send
             </Button>
           </Flex>
