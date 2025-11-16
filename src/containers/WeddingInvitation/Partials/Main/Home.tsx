@@ -16,6 +16,9 @@ import HeartAnimation from "./Animation/HeartAnimation";
 import GalerySection from "./Galery";
 import TanggalSection from "./Tanggal";
 import UcapanSection from "./Ucapan";
+import { generateGoogleCalendarLink } from "@/helpers/calender";
+import moment from "moment";
+import { configEnv } from "@/lib/configEnv";
 const MotionBox = motion(Box);
 const CenterBox = motion(Center);
 const HeartMotion = motion(Heart);
@@ -85,7 +88,7 @@ const Home = () => {
               Taufik & Hidayat
             </Text>
             <Text fontSize={"1rem"} mt={3} color={"white"}>
-              Rabu, 15 Maret 2023
+              {moment(configEnv.weddingDate).format("dddd, DD MMMM YYYY")}
             </Text>
             <Button
               size={"sm"}
@@ -95,6 +98,16 @@ const Home = () => {
               mt={4}
               rounded={"full"}
               px={5}
+              onClick={() => {
+                const url = generateGoogleCalendarLink({
+                  title: "Wedding Invitation",
+                  description: "Wedding",
+                  location: "Jakarta",
+                  start: new Date(2026, 11, 24, 14, 30),
+                  end: new Date(2026, 11, 25, 15, 30),
+                });
+                window.open(url, "_blank");
+              }}
             >
               Save Google Calender
             </Button>
@@ -485,10 +498,10 @@ const TimelineItem: React.FC = () => {
             </Box>
 
             <Box flex="1" textAlign="left" pb={3}>
-              <Text fontWeight="bold" fontSize="sm">
+              <Text fontWeight="bold" fontSize="1rem">
                 {step.title}
               </Text>
-              <Text mt={1} fontSize="xs" color="gray.200" lineHeight="1.7">
+              <Text mt={1} fontSize=".9rem" color="gray.200" lineHeight="1.7">
                 {step.desc}
               </Text>
             </Box>

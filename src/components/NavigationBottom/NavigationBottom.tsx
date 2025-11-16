@@ -26,9 +26,6 @@ const NavigationBottom: React.FC<IProps> = ({ active }): JSX.Element => {
       roundedTop={"xl"}
       p={2}
       justifyContent={"space-between"}
-      pos={"sticky"}
-      bottom={0}
-      w={"Full"}
       zIndex={99}
       borderTop={"1px solid rgba(255,255,255,0.3)"}
     >

@@ -1,7 +1,8 @@
-import { Box, Button, Center, Flex, HStack, Text } from "@chakra-ui/react";
+import { Box, Button, Center, Flex, Text } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import { MapPinned } from "lucide-react";
 import HeartAnimation from "./Animation/HeartAnimation";
-import { motion } from "framer-motion";
+import CountDownTime from "./Partials/CountDownTIme";
 const MotionBox = motion(Box);
 
 const TanggalSection = () => {
@@ -18,33 +19,7 @@ const TanggalSection = () => {
           Moment Bahagia
         </Text>
 
-        <HStack
-          mx={10}
-          mt={5}
-          align={"stretch"}
-          justify={"space-between"}
-          border={"1px solid rgba(255,255,255,0.5)"}
-          py={3}
-          rounded={"full"}
-          px={10}
-        >
-          <Center flexDirection={"column"}>
-            <Text>403</Text>
-            <Text fontSize={"xs"}>Hari</Text>
-          </Center>
-          <Center flexDirection={"column"}>
-            <Text>22</Text>
-            <Text fontSize={"xs"}>Jam</Text>
-          </Center>
-          <Center flexDirection={"column"}>
-            <Text>14</Text>
-            <Text fontSize={"xs"}>Menit</Text>
-          </Center>
-          <Center flexDirection={"column"}>
-            <Text>55</Text>
-            <Text fontSize={"xs"}>Detik</Text>
-          </Center>
-        </HStack>
+        <CountDownTime />
 
         <Text fontSize={"xs"} textAlign={"center"} mt={5}>
           Dengan memohon rahmat dan ridho Allah <br /> Subhanahu Wa Ta'ala,
