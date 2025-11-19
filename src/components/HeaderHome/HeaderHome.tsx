@@ -1,7 +1,9 @@
 "use client";
 
-import { categories } from "@/containers/WeddingInvitation/dummy";
-import { Button, Flex, HStack, Image, Text } from "@chakra-ui/react";
+import { NAVMENU } from "@/constants";
+import { capitalizeWords } from "@/helpers/formatText";
+import { Box, Flex, HStack, Link, Text } from "@chakra-ui/react";
+import { Search } from "lucide-react";
 import React, { JSX, ReactNode } from "react";
 
 interface IProps {
@@ -10,33 +12,75 @@ interface IProps {
 
 const HeaderHome: React.FC<IProps> = ({ children }): JSX.Element => {
   return (
-    <Flex
-      py={3}
-      px={{ base: 3, md: 8 }}
-      align={"center"}
-      gap={2}
-      justify={"space-between"}
-    >
-      <HStack>
-        <Image w={12} src="/logo.png" />
-        <Text color={"white"} fontSize={"3xl"} textStyle={"lobster"}>
-          Store
-        </Text>
-      </HStack>
+    <Box>
+      <Box
+        py={3}
+        gap={2}
+        bgImage={"url(/bg-hero.png)"}
+        bgPosition={"center"}
+        objectFit={"cover"}
+        w="full"
+        h={"50vh"}
+        pos={"relative"}
+      >
+        <HStack
+          bg={"myColor.bg-primary"}
+          py={5}
+          mx={20}
+          rounded={"md"}
+          shadow={"sm"}
+          my={10}
+          px={10}
+          justify={"space-between"}
+          pos="relative"
+          zIndex={10}
+        >
+          <Text fontWeight={"bold"}>Zjox Softwarks</Text>
 
-      <HStack spacing={5}>
-        {categories.map((v, i) => (
-          <Button
-            variant={"unstyled"}
-            key={i + "cats"}
-            flexShrink={0}
-            color={"white"}
-          >
-            {v.name}
-          </Button>
-        ))}
-      </HStack>
-    </Flex>
+          <HStack spacing={20}>
+            <Flex align={"center"} gap={10}>
+              {NAVMENU.map((v, i) => (
+                <Link
+                  key={v.path}
+                  _hover={{
+                    textDecoration: "none",
+                    color: "myColor.primary",
+                  }}
+                  href={`#${v.name}`}
+                >
+                  {capitalizeWords(v.name)}
+                </Link>
+              ))}
+            </Flex>
+
+            <Search />
+          </HStack>
+        </HStack>
+
+        <Text
+          mx={20}
+          fontSize={"2rem"}
+          color={"white"}
+          zIndex={10}
+          pos={"relative"}
+          fontFamily={"font.title"}
+          fontWeight={"bold"}
+          lineHeight={1.7}
+        >
+          Lets make <br /> software together!
+        </Text>
+        <Box
+          zIndex={1}
+          pos={"absolute"}
+          roundedTopRight={"3xl"}
+          top={0}
+          width={"50%"}
+          h={"full"}
+          bg={"black"}
+          opacity={0.5}
+        />
+      </Box>
+    </Box>
   );
 };
 

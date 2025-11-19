@@ -1,16 +1,10 @@
 
 :root {
   --bg-primary: white;
+  --primary: #34C759;
+  --text-primary:#3F3F3F;
 
 }
-
-/* [data-theme="dark"] {
-  --color-primary: #3b82f6;
-  --color-secondary: #a855f7;
-  --color-accent: #fbbf24;
-  --color-text: #f1f5f9;
-  --color-bg: #0f172a;
-} */
 
 * {
     margin: 0;
