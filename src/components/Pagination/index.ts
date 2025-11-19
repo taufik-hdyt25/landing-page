@@ -1,1 +1,8 @@
-export { default as Pagination } from "./Pagination";
+"use client";
+
+import dynamic from "next/dynamic";
+
+const Pagination = dynamic(() => import("./Pagination"), { ssr: false });
+
+export default Pagination;
+export { Pagination };

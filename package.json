@@ -6,8 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build --no-lint",
     "start": "next start",
-    "lint": "next lint",
-    "postinstall": "prisma generate"
+    "lint": "next lint"
   },
   "dependencies": {
     "@chakra-ui/react": "2.8.2",
@@ -15,7 +14,6 @@
     "@emotion/styled": "^11.14.1",
     "@fontsource/josefin-sans": "^5.2.8",
     "@fontsource/poppins": "^5.2.6",
-    "@prisma/client": "^6.19.0",
     "@tanstack/react-query": "^5.83.0",
     "@vercel/postgres": "^0.10.0",
     "axios": "^1.10.0",

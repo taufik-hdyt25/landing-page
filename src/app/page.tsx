@@ -1,20 +1,14 @@
-import WeddingInvitation from "@/containers/WeddingInvitation";
-import { generateParams } from "@/helpers/generateParams";
+import Home from "@/containers/Home";
 import { IParams } from "@/interfaces/IBaseParams";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Wedding - Taufik & Hidayat",
+  title: "My App",
 };
 const HomePage = async ({ searchParams, params }: IParams) => {
-  const { query } = await generateParams({ searchParams, params });
+  // const { query } = await generateParams({ searchParams, params });
 
-  const sendParams: any = {
-    to: query?.to ? String(query.to) : "",
-    page: query.page ? String(query.page) : 1,
-  };
-
-  return <WeddingInvitation params={sendParams} />;
+  return <Home />;
 };
 
 export default HomePage;

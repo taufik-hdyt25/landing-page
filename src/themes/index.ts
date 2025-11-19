@@ -1,50 +1,25 @@
-import { extendTheme } from "@chakra-ui/react";
+import { extendTheme, type ThemeOverride } from "@chakra-ui/react";
 import { Button } from "./components/button";
-import "@fontsource/poppins";
-import "@fontsource/josefin-sans";
+import { Text } from "./components/text";
 
-const myCustomTheme = extendTheme({
-  fonts: {
-    heading: `'Poppins', sans-serif`,
-    body: `'Josefin Sans', sans-serif`,
+const myCustomTheme: ThemeOverride = extendTheme({
+  config: {
+    initialColorMode: "light",
+    useSystemColorMode: false,
   },
-  textStyles: {
-    lobster: {
-      fontFamily: "var(--font-Lobster)",
-    },
-    caladea: {
-      fontFamily: "var(--font-Caladea)",
-    },
-    dancing: {
-      fontFamily: "var(--font-dancing)",
-    },
-    fontEsthetic: {
-      fontFamily: "var(--font-esthetic)",
-    },
-    fontArabic: {
-      fontFamily: "var(--font-arabic)",
-    },
+  fonts: {
+    heading: "var(--font-fontText)",
+    body: "var(--font-poppins)",
+    poppins: "var(--font-poppins)",
   },
   colors: {
-    primary: "var(--bg)",
     myColor: {
-      primary: "var(--primary) ",
-      secondary: "var(--secondary)",
-      text: "var(--text)",
-      bg: "var(--bg)",
-      "bg-sidebar": "var(--bg-sidebar)",
-      "bg-content": "var(--bg-content)",
-      "text-inActive": "var(--text-inActive)",
-      "bg-primary": "var(--bg-primary)",
+      "bg-primary": "var(--var-bg-primary)",
     },
   },
   components: {
     Button,
-    Text: {
-      baseStyle: {
-        color: "white",
-      },
-    },
+    Text: Text,
   },
 });
 

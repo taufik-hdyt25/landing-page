@@ -1,19 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap');
-
-
-
-
-
 
 :root {
-  --bg-primary: black;
-  --primary: #F5F5F5;
-  --secondary: #9333ea;
-  --text: #1e293b;
-  --bg: #FEDFE3;
-  --bg-sidebar: #ffffff;
-  --bg-content: #F5F5F5;
-  --text-inActive: #ABABAB;
+  --bg-primary: white;
+
 }
 
 /* [data-theme="dark"] {
@@ -24,21 +12,11 @@
   --color-bg: #0f172a;
 } */
 
-
-
-
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-.syne-font {
-  font-family: "Syne", sans-serif;
-  font-style: normal;
-}
-
 
 .carousel-item {
   padding: 0 8px;
