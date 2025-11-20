@@ -1,6 +1,6 @@
 
 :root {
-  --bg-primary: white;
+  --bg-primary: #ebebeb;
   --primary: #34C759;
   --text-primary:#3F3F3F;
 
@@ -24,4 +24,12 @@
 .react-multi-carousel-item {
   overflow: hidden;      
   border-radius: 12px;    
+}
+.hide-scrollbar {
+  -ms-overflow-style: none; 
+  scrollbar-width: none;    
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; 
 }
